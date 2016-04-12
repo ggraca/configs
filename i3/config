@@ -2,6 +2,9 @@
 
 font pango:System San Francisco Display 12
 hide_edge_borders both
+gaps outer 0
+gaps inner 30
+new_window pixel 0
 
 set $base00 #101218
 set $base01 #1f222d
@@ -82,6 +85,7 @@ bindsym $mod+m mode "move"
 #Bar----------------------------------------------------------------------------
 
 bar{
+        position top
         status_command i3blocks -c .config/i3/i3blocks.conf
         colors {
                 separator $base03
@@ -173,6 +177,7 @@ bindsym --release Mod4 exec rofi -show run
 #Startup------------------------------------------------------------------------
 
 exec_always compton
+exec nm-applet
 exec_always feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
 exec kupfer --no-splash
 
