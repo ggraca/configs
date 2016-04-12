@@ -25,5 +25,5 @@ xrandr --output eDP1 --mode 1920x1080_60.00
 
 #xbindkeys
 #exec fluxbox
-exec openbox-session
-#exec i3
+#exec openbox-session
+exec i3
