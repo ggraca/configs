@@ -1,0 +1,15 @@
+{
+	"font_size": 12,
+	
+	"menu_visible": true,
+    "show_minimap": false,
+    "show_open_files": false,
+    "show_tabs": false,
+    "side_bar_visible": false,
+    "status_bar_visible": false,
+	"overlay_scroll_bars": "enabled",
+
+	"hot_exit": false,
+	"open_files_in_new_window": true,
+	"remember_open_files": false
+}

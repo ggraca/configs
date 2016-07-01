@@ -27,3 +27,8 @@ ln -s $(echo $(pwd)/xorg/.xinitrc) ~/.xinitrc
 #Bash
 rm ~/.bashrc
 ln -s $(echo $(pwd)/bash/.bashrc) ~/.bashrc
+
+#Sublime
+rm ~/.config/sublime-text-3/Packages/User
+rm -r ~/.config/sublime-text-3/Packages/User
+ln -s $(echo $(pwd)/sublime) ~/.config/sublime-text-3/Packages/User/

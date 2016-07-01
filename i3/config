@@ -8,6 +8,9 @@ new_window pixel 0
 #for_window [class=".*"] focus
 workspace_auto_back_and_forth yes
 
+for_window [class="Wine" instance="Darkstone.exe"] floating enable
+for_window [title="OpenGL.*"] floating enable
+
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -110,29 +113,30 @@ workspace $ws1 output eDP1
 #assign [class="Terminator"] → $ws1
 
 set $ws2 "2 "
-workspace $ws2 output eDP1
+#workspace $ws2 output eDP1
 assign [class="chromium"] → $ws2
 
 set $ws3 "3 "
-workspace $ws3 output eDP1
+#workspace $ws3 output eDP1
 assign [class="Atom"] → $ws3
-assign [class="Subl3"] → $ws3
 
 set $ws4 "4 "
-workspace $ws4 output eDP1
+#workspace $ws4 output eDP1
 assign [class="Thunar"] → $ws4
 
 set $ws5 "5 "
 workspace $ws5 output DP1
 assign [class="Eog"] → $ws5
-assign [class="SMPlayer"] → $ws5
+assign [class="smplayer"] → $ws5
+assign [title="OpenGL.*"] → $ws5
 
 set $ws6 "6 "
-workspace $ws6 output eDP1
+#workspace $ws6 output eDP1
 assign [class="Wine" instance="Hearthstone.exe"] → $ws6
+assign [class="Wine" instance="Darkstone.exe"] → $ws6
 
 set $ws8 "8 "
-workspace $ws8 output eDP1
+#workspace $ws8 output eDP1
 assign [class="Slack"] → $ws8
 assign [title="Messenger"] → $ws8
 
@@ -200,3 +204,5 @@ exec slack -u
 exec spotify
 exec messengerfordesktop
 exec --no-startup-id i3-msg 'workspace $ws1; exec terminator'
+
+exec_always export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0

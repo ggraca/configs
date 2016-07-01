@@ -22,6 +22,11 @@ xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 
 xrandr --addmode eDP1 "1920x1080_60.00"
 xrandr --output eDP1 --mode 1920x1080_60.00
 
+#xrandr --newmode "1440x900_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
+#xrandr --addmode DP1 "1440x900_60.00"
+#xrandr --output DP1 --mode 1440x900_60.00
+
+
 
 #xbindkeys
 #exec fluxbox
