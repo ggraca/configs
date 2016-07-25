@@ -108,42 +108,32 @@ bar{
 
 #Workspaces---------------------------------------------------------------------
 
-set $ws1 "1 "
-workspace $ws1 output eDP1
-#assign [class="Terminator"] → $ws1
+set $ws1 "0 "
 
-set $ws2 "2 "
-#workspace $ws2 output eDP1
-assign [class="chromium"] → $ws2
+set $ws2 "2 "
+set $ws3 "3 "
 
-set $ws3 "3 "
-#workspace $ws3 output eDP1
-assign [class="Atom"] → $ws3
+set $ws4 "4 "
+assign [class="Wine" instance="Hearthstone.exe"] → $ws4
+assign [class="Wine" instance="Darkstone.exe"] → $ws4
 
-set $ws4 "4 "
-#workspace $ws4 output eDP1
-assign [class="Thunar"] → $ws4
-
-set $ws5 "5 "
-workspace $ws5 output DP1
-assign [class="Eog"] → $ws5
-assign [class="smplayer"] → $ws5
-assign [title="OpenGL.*"] → $ws5
-
-set $ws6 "6 "
-#workspace $ws6 output eDP1
-assign [class="Wine" instance="Hearthstone.exe"] → $ws6
-assign [class="Wine" instance="Darkstone.exe"] → $ws6
+set $ws5 "5 "
+set $ws6 "6 "
 
 set $ws8 "8 "
 #workspace $ws8 output eDP1
 assign [class="Slack"] → $ws8
 assign [title="Messenger"] → $ws8
 
-set $ws9 "9 "
+set $ws9 "9 "
 workspace $ws9 output DP1
+assign [class="Eog"] → $ws9
+assign [class="smplayer"] → $ws9
+assign [title="OpenGL.*"] → $ws9
 for_window [class="Spotify"] move to workspace $ws9
 
+
+set $ws10 " "
 
 bindsym F20 workspace $ws1
 bindsym F22 workspace $ws2
@@ -153,6 +143,7 @@ bindsym F25 workspace $ws5
 bindsym F26 workspace $ws6
 bindsym F28 workspace $ws8
 bindsym F29 workspace $ws9
+bindsym Ctrl+Delete workspace $ws10
 
 bindsym Shift+F20 move container to workspace $ws1
 bindsym Shift+F22 move container to workspace $ws2
@@ -162,12 +153,14 @@ bindsym Shift+F25 move container to workspace $ws5
 bindsym Shift+F26 move container to workspace $ws6
 bindsym Shift+F28 move container to workspace $ws8
 bindsym Shift+F29 move container to workspace $ws9
+bindsym Shift+Ctrl+Delete move container to workspace $ws10
 
 bindsym $mod+Tab workspace back_and_forth
 
 #Shortcuts----------------------------------------------------------------------
 
-bindsym $mod+Return exec terminator
+bindsym $mod+t exec terminator
+bindsym $mod+s exec subl3 -n
 
 bindsym Print exec scrot ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
 bindsym Mod4+Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
@@ -194,9 +187,9 @@ bindsym Mod4+l exec slock
 
 #Startup------------------------------------------------------------------------
 
-exec_always compton
+exec compton
 exec nm-applet
-exec_always feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
+exec bash ~/Scripts/BatteryWallpaper.sh
 exec kupfer --no-splash
 
 exec transmission-daemon
