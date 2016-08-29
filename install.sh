@@ -33,6 +33,18 @@ ln -s $(echo $(pwd)/xorg/.Xmodmap) ~/.Xmodmap
 rm ~/.xinitrc
 ln -s $(echo $(pwd)/xorg/.xinitrc) ~/.xinitrc
 
+#Yabar
+rm ~/.config/yabar
+rm -r ~/.config/yabar
+ln -s $(echo $(pwd)/yabar) ~/.config/yabar
+
 #Zsh
 rm ~/.zshrc
 ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zshrc
+
+#----------------------------------------------
+
+#Scripts
+rm ~/.scripts
+rm -r ~/.scripts
+ln -s $(echo $(pwd)/scripts) ~/.scripts
