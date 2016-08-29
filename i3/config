@@ -110,21 +110,21 @@ bar{
 
 
 mode "notifications" {
-        bindsym Up exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Up
-        bindsym Down exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Down
+        bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
+        bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
 
-        bindsym Shift+Up exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Smart Up
-        bindsym Shift+Down exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Smart Down
+        bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
+        bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
 
-        bindsym Shift+F30 exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Clear
-        bindsym Shift+Del exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Delete
+        bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
+        bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
 
         bindsym F30 mode "default"
         bindsym Escape mode "default"
         }
 
 bindsym F30 mode "notifications"
-bindsym Shift+F30 exec python2 ~/Workspaces/configs/scripts/yanotify/InputSender.py Clear
+bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
 
 #Workspaces---------------------------------------------------------------------
 
@@ -182,21 +182,21 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
-bindsym Pause exec bash ~/Scripts/media.sh play-pause
-bindsym Control+F24 exec bash ~/Scripts/media.sh previous
-bindsym Control+F26 exec bash ~/Scripts/media.sh next
-bindsym Control+F25 exec bash ~/Scripts/media.sh play-pause
+bindsym Pause exec bash ~/.scripts/media.sh play-pause
+bindsym Control+F24 exec bash ~/.scripts/media.sh previous
+bindsym Control+F26 exec bash ~/.scripts/media.sh next
+bindsym Control+F25 exec bash ~/.scripts/media.sh play-pause
 
-bindsym XF86AudioPrev exec bash ~/Scripts/media.sh previous
-bindsym XF86AudioNext exec bash ~/Scripts/media.sh next
-bindsym XF86AudioPlay exec bash ~/Scripts/media.sh play-pause
+bindsym XF86AudioPrev exec bash ~/.scripts/media.sh previous
+bindsym XF86AudioNext exec bash ~/.scripts/media.sh next
+bindsym XF86AudioPlay exec bash ~/.scripts/media.sh play-pause
 
 bindsym XF86PowerOff exec pm-suspend
 bindsym XF86MonBrightnessUp exec xbacklight +25
 bindsym XF86MonBrightnessDown exec xbacklight -25
 
 bindsym Mod4+l exec slock
-bindsym Mod4+m exec bash ~/Workspaces/configs/scripts/monitor.sh
+bindsym Mod4+m exec bash ~/.scripts/monitor.sh
 
 #bindsym --release Mod4 exec rofi -show run
 
@@ -207,7 +207,7 @@ exec_always pkill yabar; sleep 1; yabar
 exec nm-applet
 exec kupfer --no-splash
 
-#exec bash ~/Scripts/BatteryWallpaper.sh
+#exec bash ~/.scripts/BatteryWallpaper.sh
 exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
 
 
