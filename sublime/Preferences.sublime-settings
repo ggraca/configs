@@ -1,5 +1,5 @@
 {
-	"font_size": 12,
+	"font_size": 13,
 	"hot_exit": false,
 	"menu_visible": true,
 	"open_files_in_new_window": true,
@@ -9,5 +9,6 @@
 	"show_open_files": false,
 	"show_tabs": false,
 	"side_bar_visible": false,
-	"status_bar_visible": false
+	"status_bar_visible": false,
+	"tab_size": 2
 }

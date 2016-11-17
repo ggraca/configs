@@ -6,7 +6,6 @@ gaps outer 0
 gaps inner 30
 new_window pixel 0
 #for_window [class=".*"] focus
-workspace_auto_back_and_forth yes
 
 for_window [class="Wine" instance="Darkstone.exe"] floating enable
 for_window [title="OpenGL.*"] floating enable
@@ -129,6 +128,7 @@ bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
 #Workspaces---------------------------------------------------------------------
 
 set $ws1 "0 "
+workspace $ws8 output eDP1
 
 set $ws2 "2 "
 set $ws3 "3 "
@@ -141,7 +141,7 @@ set $ws5 "5 "
 set $ws6 "6 "
 
 set $ws8 "8 "
-#workspace $ws8 output eDP1
+workspace $ws8 output DP1
 assign [class="Slack"] → $ws8
 assign [title="Messenger"] → $ws8
 
@@ -176,6 +176,7 @@ bindsym Shift+F29 move container to workspace $ws9
 bindsym $mod+t exec terminator
 bindsym $mod+s exec subl3 -n
 
+
 bindsym Print exec scrot ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
 bindsym Mod4+Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
@@ -196,16 +197,18 @@ bindsym XF86MonBrightnessUp exec xbacklight +25
 bindsym XF86MonBrightnessDown exec xbacklight -25
 
 bindsym Mod4+l exec slock
-bindsym Mod4+m exec bash ~/.scripts/monitor.sh
+bindsym Mod4+m exec bash ~/.scripts/monitor_off.sh
+bindsym Mod4+o exec bash ~/.scripts/monitor_office.sh
+bindsym Mod4+h exec bash ~/.scripts/monitor_home.sh
 
-#bindsym --release Mod4 exec rofi -show run
+bindsym F19 exec rofi -show drun
 
 #Startup------------------------------------------------------------------------
 
 exec compton
 exec_always pkill yabar; sleep 1; yabar
 exec nm-applet
-exec kupfer --no-splash
+exec rofi
 
 #exec bash ~/.scripts/BatteryWallpaper.sh
 exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg

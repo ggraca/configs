@@ -31,8 +31,6 @@ class InputReceiver(Thread):
     def printInput(self, s):
         print(s)
 
-def printLOL(s):
-    print("LOL " + s + "LOL")
 
 if __name__ == "__main__":
     InputReceiver()
