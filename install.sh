@@ -42,7 +42,10 @@ ln -s $(echo $(pwd)/yabar) ~/.config/yabar
 rm ~/.zshrc
 ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zshrc
 rm ~/.zprofile
-ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zprofile
+ln -s $(echo $(pwd)/zsh/.zprofile) ~/.zprofile
+rm ~/.oh-my-zsh
+rm -r ~/.oh-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 #----------------------------------------------
 
