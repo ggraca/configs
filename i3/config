@@ -217,7 +217,7 @@ exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
 exec transmission-daemon
 exec slack -u
 exec spotify
-exec messengerfordesktop
+#exec messengerfordesktop
 #exec --no-startup-id i3-msg 'workspace $ws1; exec terminator'
 exec slock
 

@@ -41,6 +41,8 @@ ln -s $(echo $(pwd)/yabar) ~/.config/yabar
 #Zsh
 rm ~/.zshrc
 ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zshrc
+rm ~/.zprofile
+ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zprofile
 
 #----------------------------------------------
 
