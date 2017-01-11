@@ -92,13 +92,13 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 1
 
-time = %H:%M
+time = " %H:%M"
+date-alt = " %d/%m/%Y"
 
-format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
-label = "  %time% "
+label = " %time%%date% "
 
 
 [module/volume]
