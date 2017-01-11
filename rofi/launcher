@@ -1,0 +1,5 @@
+rofi.fullscreen: true
+
+rofi.font: RobotoMono 40
+rofi.scroll-method: 1
+rofi.padding: 300

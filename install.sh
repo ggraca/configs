@@ -17,6 +17,16 @@ rm ~/.config/openbox
 rm -r ~/.config/openbox
 ln -s $(echo $(pwd)/openbox) ~/.config/openbox
 
+#Polybar
+rm ~/.config/polybar
+rm -r ~/.config/polybar
+ln -s $(echo $(pwd)/polybar) ~/.config/polybar
+
+#Rofi
+rm ~/.config/rofi
+rm -r ~/.config/rofi
+ln -s $(echo $(pwd)/rofi) ~/.config/rofi
+
 #Sublime
 rm ~/.config/sublime-text-3/Packages/User
 rm -r ~/.config/sublime-text-3/Packages/User
@@ -30,6 +40,8 @@ ln -s $(echo $(pwd)/tint2) ~/.config/tint2
 #Xorg
 rm ~/.Xmodmap
 ln -s $(echo $(pwd)/xorg/.Xmodmap) ~/.Xmodmap
+rm ~/.Xresources
+ln -s $(echo $(pwd)/xorg/.Xresources) ~/.Xresources
 rm ~/.xinitrc
 ln -s $(echo $(pwd)/xorg/.xinitrc) ~/.xinitrc
 

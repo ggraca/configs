@@ -10,21 +10,20 @@ new_window pixel 0
 for_window [class="Wine" instance="Darkstone.exe"] floating enable
 for_window [title="OpenGL.*"] floating enable
 
+set $BG #1E1E20
+set $FG #333745
+set $TXT #DAEDE2
+set $C1 #77C4D3
+set $C2 #F6F792
+set $C3 #EA2E49
+
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
 set $base03 #7780a1
-set $base04 #C0C5CE
 set $base05 #d1d4e0
-set $base06 #C9CCDB
 set $base07 #ffffff
 set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # Widow Colours         border  background text    indicator
@@ -44,11 +43,13 @@ bindsym $mod+F22 focus down
 bindsym $mod+F28 focus up
 bindsym $mod+F26 focus right
 bindsym $mod+f fullscreen toggle
+bindsym Mod1+Shift+space floating toggle
+floating_modifier Mod1
 
 bindsym $mod+h split h
 bindsym $mod+v split v
 
-bindsym $mod+c move workspace to output left
+bindsym $mod+c move workspace to output up
 bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Shift+c reload
@@ -89,24 +90,7 @@ bindsym $mod+m mode "move"
 
 
 
-#Bar----------------------------------------------------------------------------
-
-bar{
-        position bottom
-        status_command i3blocks -c .config/i3/i3blocks.conf
-        colors {
-                separator $base03
-                background $base01
-                statusline $base05
-
-                #                  border  background text
-                focused_workspace  $base01 $base01    $base07
-                active_workspace   $base01 $base02    $base03
-                inactive_workspace $base01 $base01    $base03
-                urgent_workspace   $base01 $base01    $base08
-        }
-}
-
+#Mode----------------------------------------------------------------------------
 
 mode "notifications" {
         bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
@@ -178,7 +162,7 @@ bindsym $mod+s exec subl3 -n
 
 
 bindsym Print exec scrot ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
-bindsym Mod4+Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
+#bindsym Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
@@ -201,14 +185,17 @@ bindsym Mod4+m exec bash ~/.scripts/monitor_off.sh
 bindsym Mod4+o exec bash ~/.scripts/monitor_office.sh
 bindsym Mod4+h exec bash ~/.scripts/monitor_home.sh
 
-bindsym F19 exec rofi -show drun
+bindsym F19 exec rofi -show drun -config ~/.config/rofi/launcher
+bindsym Mod4+n exec rofi -show drun -config ~/.config/rofi/notification
+
+
 
 #Startup------------------------------------------------------------------------
 
 exec compton
-exec_always pkill yabar; sleep 1; yabar
+#exec_always pkill yabar; sleep 1; yabar
+exec_always killall polybar; sleep 1; polybar example
 exec nm-applet
-exec rofi
 
 #exec bash ~/.scripts/BatteryWallpaper.sh
 exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
