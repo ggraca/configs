@@ -4,8 +4,13 @@ class MessageList:
 
     def __init__(self):
         self.decorate = True
+        self.clear()
+
+    def clear(self):
         self.messages = []
-        self.current_message = 0;
+        self.current_message = 0
+        sys.stdout.write('\n')
+        sys.stdout.flush()
 
     def show(self, i):
         if(i >= len(self.messages) or i < 0):
@@ -34,3 +39,4 @@ class MessageList:
     def navigate(self, direction, smart):
         temp = self.current_message + direction
         self.show(temp)
+

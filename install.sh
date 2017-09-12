@@ -30,7 +30,7 @@ ln -s $(echo $(pwd)/rofi) ~/.config/rofi
 #Sublime
 rm ~/.config/sublime-text-3/Packages/User
 rm -r ~/.config/sublime-text-3/Packages/User
-ln -s $(echo $(pwd)/sublime) ~/.config/sublime-text-3/Packages/User/
+ln -s $(echo $(pwd)/sublime) ~/.config/sublime-text-3/Packages/User
 
 #Tint2
 rm ~/.config/tint2
@@ -51,13 +51,13 @@ rm -r ~/.config/yabar
 ln -s $(echo $(pwd)/yabar) ~/.config/yabar
 
 #Zsh
+rm ~/.oh-my-zsh
+rm -r ~/.oh-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 rm ~/.zshrc
 ln -s $(echo $(pwd)/zsh/.zshrc) ~/.zshrc
 rm ~/.zprofile
 ln -s $(echo $(pwd)/zsh/.zprofile) ~/.zprofile
-rm ~/.oh-my-zsh
-rm -r ~/.oh-my-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 #----------------------------------------------
 

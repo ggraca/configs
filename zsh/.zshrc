@@ -1,24 +1,3 @@
-#General-------------------------------------------------------------------------
-export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
-
-
-#Ruby---------------------------------------------------------------------------
-
-eval "$(rbenv init -)"
-
-#export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-export PATH="/opt/heroku-toolbelt/bin:$PATH"
-
-
-#Python--------------------------------------------------------------------------
-
-export WORKON_HOME=~/.python_envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-source /usr/bin/virtualenvwrapper.sh
-
-
-
 # Path to your oh-my-zsh installation.
   export ZSH=/home/ggraca/.oh-my-zsh
 
@@ -103,3 +82,28 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#General-------------------------------------------------------------------------
+eval $(keychain --eval --quiet --noask id_rsa ~/.ssh/id_rsa)
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+
+
+#Ruby---------------------------------------------------------------------------
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+#export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+#export PATH="/opt/heroku-toolbelt/bin:$PATH"
+
+
+#Python-------------------------------------------------------------------------
+
+#export WORKON_HOME=~/.python_envs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+#source /usr/bin/virtualenvwrapper.sh
+
+#Android------------------------------------------------------------------------
+
+export ANDROID_HOME=/opt/android-sdk/
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools

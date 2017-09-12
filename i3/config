@@ -4,6 +4,7 @@ font pango:System San Francisco Display 12
 hide_edge_borders both
 gaps outer 0
 gaps inner 30
+smart_gaps on
 new_window pixel 0
 #for_window [class=".*"] focus
 
@@ -49,7 +50,7 @@ floating_modifier Mod1
 bindsym $mod+h split h
 bindsym $mod+v split v
 
-bindsym $mod+c move workspace to output up
+bindsym $mod+c move workspace to output right
 bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Shift+c reload
@@ -60,10 +61,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #Placement----------------------------------------------------------------------
 
 mode "resize" {
-        bindsym F24 resize shrink width 10 px or 10 ppt
-        bindsym F22 resize grow height 10 px or 10 ppt
-        bindsym F28 resize shrink height 10 px or 10 ppt
-        bindsym F26 resize grow width 10 px or 10 ppt
+        bindsym F24 resize shrink width 1 px
+        bindsym F22 resize grow height 1 px
+        bindsym F28 resize shrink height 1 px
+        bindsym F26 resize grow width 1 px
 
         bindsym F25 mode "default"
         bindsym Return mode "default"
@@ -115,6 +116,9 @@ set $ws1 "0 "
 workspace $ws8 output eDP1
 
 set $ws2 "2 "
+workspace $ws2 output DP1
+assign [class="Atom"] → $ws2
+
 set $ws3 "3 "
 
 set $ws4 "4 "
@@ -127,7 +131,7 @@ set $ws6 "6 "
 set $ws8 "8 "
 workspace $ws8 output DP1
 assign [class="Slack"] → $ws8
-assign [title="Messenger"] → $ws8
+assign [class="Caprine"] → $ws8
 
 set $ws9 "9 "
 workspace $ws9 output DP1
@@ -157,12 +161,13 @@ bindsym Shift+F29 move container to workspace $ws9
 
 #Shortcuts----------------------------------------------------------------------
 
+bindsym $mod+Return exec terminator
 bindsym $mod+t exec terminator
 bindsym $mod+s exec subl3 -n
 
 
 bindsym Print exec scrot ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
-#bindsym Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
+bindsym --release Mod4+Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
@@ -177,35 +182,40 @@ bindsym XF86AudioNext exec bash ~/.scripts/media.sh next
 bindsym XF86AudioPlay exec bash ~/.scripts/media.sh play-pause
 
 bindsym XF86PowerOff exec pm-suspend
-bindsym XF86MonBrightnessUp exec xbacklight +25
-bindsym XF86MonBrightnessDown exec xbacklight -25
+bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5
 
-bindsym Mod4+l exec slock
+bindsym --release Mod4+l exec slock
 bindsym Mod4+m exec bash ~/.scripts/monitor_off.sh
 bindsym Mod4+o exec bash ~/.scripts/monitor_office.sh
 bindsym Mod4+h exec bash ~/.scripts/monitor_home.sh
 
 bindsym F19 exec rofi -show drun -config ~/.config/rofi/launcher
-bindsym Mod4+n exec rofi -show drun -config ~/.config/rofi/notification
+bindsym Mod4+n exec exec bash ~/.config/rofi/modis/power.sh
 
+bindsym --release $mod+Escape exec ~/temp/sshcenas.sh 2> ~/temp/logfile
+#bindsym $mod+Escape exec xev
 
 
 #Startup------------------------------------------------------------------------
 
 exec compton
 #exec_always pkill yabar; sleep 1; yabar
-exec_always killall polybar; sleep 1; polybar example
+exec_always killall polybar; killall polybar; polybar main; polybar secondary;
 exec nm-applet
 
 #exec bash ~/.scripts/BatteryWallpaper.sh
-exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
+#exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
+exec_always python ~/Workspaces/configs/scripts/random_pokemon_wallpaper.py
 
 
 exec transmission-daemon
-exec slack -u
+exec slack
+#exec caprine
 exec spotify
-#exec messengerfordesktop
+#exec "/opt/PB for Desktop/pb-for-desktop"
+
 #exec --no-startup-id i3-msg 'workspace $ws1; exec terminator'
-exec slock
+#exec slock
 
 exec_always export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
