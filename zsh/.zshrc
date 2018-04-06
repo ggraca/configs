@@ -104,6 +104,6 @@ eval "$(rbenv init -)"
 
 #Android------------------------------------------------------------------------
 
-export ANDROID_HOME=/opt/android-sdk/
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+#export ANDROID_HOME=/opt/android-sdk/
+#export PATH=${PATH}:${ANDROID_HOME}/tools
+#export PATH=${PATH}:${ANDROID_HOME}/platform-tools

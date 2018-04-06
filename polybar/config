@@ -15,6 +15,7 @@ foreground-alt = #EA2E49
 primary = #77C4D3
 secondary = #F6F792
 alert = #EA2E49
+transparent = #cc000000
 
 [bar/main]
 monitor = eDP1
@@ -30,20 +31,36 @@ foreground = ${colors.foreground}
 underline-size = 3
 
 spacing = 1
-padding-left = 0
+padding-left = 2
 padding-right = 2
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = RobotoMono:pixelsize=20
+font-0 = RobotoMono:pixelsize=15
 font-1 = FontAwesome:pixelsize=22
+
+fixed-center = true
 
 modules-left = notifications
 modules-center = i3
 modules-right = wlan volume battery date
 
-tray-position = right
-tray-padding = 2
+[bar/tray]
+monitor = eDP1
+width = 100%
+fixed-center = true
+override-redirect = true
+border-left-size = 800
+border-right-size = 800
+
+height = 35
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+modules-center = none
+tray-position = center
+
 
 [bar/secondary]
 monitor = DP1
@@ -64,15 +81,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = RobotoMono:pixelsize=20
+font-0 = RobotoMono:pixelsize=15
 font-1 = FontAwesome:pixelsize=22
 
 modules-left = 
 modules-center = i3
 modules-right = 
-
-tray-position = right
-tray-padding = 2
 
 
 [module/i3]
@@ -180,4 +194,15 @@ animation-charging-framerate = 750
 [module/notifications]
 type = custom/script
 exec = "python2 ~/Workspaces/configs/scripts/yanotify/yanotify.py"
+tail = true
+
+[module/none]
+type = custom/script
+exec = "echo ..."
+tail = false
+
+[module/toggl]
+type = custom/script
+label = ""
+exec = ""
 tail = true

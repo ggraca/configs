@@ -18,13 +18,13 @@ rofi.scroll-method: 1
 
 
 ! Keyboard
-rofi.kb-primary-paste: Control+v
+! rofi.kb-primary-paste: Control+v
 
-rofi.kb-clear-line:                  Shift+Delete
-rofi.kb-move-word-back:              Control+Left
-rofi.kb-move-word-forward:           Control+Right
-rofi.kb-move-front:                  Home
-rofi.kb-move-end:                    End
+! rofi.kb-clear-line:                  Shift+Delete
+! rofi.kb-move-word-back:              Control+Left
+! rofi.kb-move-word-forward:           Control+Right
+! rofi.kb-move-front:                  Home
+! rofi.kb-move-end:                    End
 
-rofi.kb-row-first:                   Control+Home,Control+KP_Home
-rofi.kb-row-last:                    Control+End,Control+KP_End
+! rofi.kb-row-first:                   Control+Home,Control+KP_Home
+! rofi.kb-row-last:                    Control+End,Control+KP_End

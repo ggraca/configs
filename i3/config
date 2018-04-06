@@ -1,15 +1,4 @@
-#General------------------------------------------------------------------------
-
-font pango:System San Francisco Display 12
-hide_edge_borders both
-gaps outer 0
-gaps inner 30
-smart_gaps on
-new_window pixel 0
-#for_window [class=".*"] focus
-
-for_window [class="Wine" instance="Darkstone.exe"] floating enable
-for_window [title="OpenGL.*"] floating enable
+# General------------------------------------------------------------------------
 
 set $BG #1E1E20
 set $FG #333745
@@ -33,113 +22,50 @@ client.focused_inactive $base02 $base02    $base03 $base0F
 client.unfocused        $base02 $base02    $base03 $base0F
 client.urgent           $base02 $base08    $base00 $base0F
 
+font pango:System San Francisco Display 12
+smart_gaps on
+gaps outer 0
+gaps inner 60
+hide_edge_borders both
+new_window pixel 0
 
-#GeneralKeybindings-------------------------------------------------------------
+
+
+# GeneralKeybindings-------------------------------------------------------------
 
 set $mod Mod1
+floating_modifier $mod
+bindsym $mod+F4 kill
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
 
-bindsym Mod1+F4 kill
 bindsym $mod+F24 focus left
 bindsym $mod+F22 focus down
 bindsym $mod+F28 focus up
 bindsym $mod+F26 focus right
-bindsym $mod+f fullscreen toggle
-bindsym Mod1+Shift+space floating toggle
-floating_modifier Mod1
-
 bindsym $mod+h split h
 bindsym $mod+v split v
-
-bindsym $mod+c move workspace to output right
-bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-#Placement----------------------------------------------------------------------
 
-mode "resize" {
-        bindsym F24 resize shrink width 1 px
-        bindsym F22 resize grow height 1 px
-        bindsym F28 resize shrink height 1 px
-        bindsym F26 resize grow width 1 px
-
-        bindsym F25 mode "default"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-
-        bindsym $mod+m mode "move"
-}
-
-mode "move" {
-        bindsym F24 move left
-        bindsym F22 move down
-        bindsym F28 move up
-        bindsym F26 move right
-
-        bindsym F25 mode "default"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-
-        bindsym $mod+r mode "resize"
-        }
-
-bindsym $mod+r mode "resize"
-bindsym $mod+m mode "move"
-
-
-
-#Mode----------------------------------------------------------------------------
-
-mode "notifications" {
-        bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
-        bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
-
-        bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
-        bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
-
-        bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
-        bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
-
-        bindsym F30 mode "default"
-        bindsym Escape mode "default"
-        }
-
-bindsym F30 mode "notifications"
-bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
-
-#Workspaces---------------------------------------------------------------------
+# Workspaces---------------------------------------------------------------------
 
 set $ws1 "0 "
-workspace $ws8 output eDP1
-
 set $ws2 "2 "
-workspace $ws2 output DP1
-assign [class="Atom"] → $ws2
-
 set $ws3 "3 "
-
 set $ws4 "4 "
-assign [class="Wine" instance="Hearthstone.exe"] → $ws4
-assign [class="Wine" instance="Darkstone.exe"] → $ws4
-
 set $ws5 "5 "
 set $ws6 "6 "
-
 set $ws8 "8 "
-workspace $ws8 output DP1
-assign [class="Slack"] → $ws8
-assign [class="Caprine"] → $ws8
-
 set $ws9 "9 "
-workspace $ws9 output DP1
-#assign [class="Eog"] → $ws9
-assign [class="smplayer"] → $ws9
-assign [title="OpenGL.*"] → $ws9
-for_window [class="Spotify"] move to workspace $ws9
 
+workspace $ws2 output DP1
+workspace $ws8 output DP1
+workspace $ws9 output DP1
 
 bindsym F20 workspace $ws1
 bindsym F22 workspace $ws2
@@ -159,63 +85,159 @@ bindsym Shift+F26 move container to workspace $ws6
 bindsym Shift+F28 move container to workspace $ws8
 bindsym Shift+F29 move container to workspace $ws9
 
-#Shortcuts----------------------------------------------------------------------
-
-bindsym $mod+Return exec terminator
-bindsym $mod+t exec terminator
-bindsym $mod+s exec subl3 -n
+bindsym $mod+c move workspace to output right
+bindsym $mod+Tab workspace back_and_forth
 
 
-bindsym Print exec scrot ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
-bindsym --release Mod4+Print exec scrot -s ~/Pictures/Screenshots/"%Y-%h-%d %H-%M-%S.png"
+
+# Modes--------------------------------------------------------------------------
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym F24 resize shrink width 1 px
+        bindsym F22 resize grow height 1 px
+        bindsym F28 resize shrink height 1 px
+        bindsym F26 resize grow width 1 px
+
+        bindsym F25 mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+        bindsym $mod+m mode "move"
+}
+
+bindsym $mod+m mode "move"
+mode "move" {
+        bindsym F24 move left
+        bindsym F22 move down
+        bindsym F28 move up
+        bindsym F26 move right
+
+        bindsym F25 mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+        bindsym $mod+r mode "resize"
+}
+
+bindsym F30 mode "notifications"
+bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
+mode "notifications" {
+        bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
+        bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
+
+        bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
+        bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
+
+        bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
+        bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
+
+        bindsym F30 mode "default"
+        bindsym Escape mode "default"
+}
+
+
+
+# Shortcuts----------------------------------------------------------------------
+
+# General
+bindsym F19 exec rofi -show drun -config ~/.config/rofi/launcher
+bindsym XF86PowerOff exec pm-suspend
+bindsym --release Mod4+l exec slock
+bindsym $mod+b exec bash ~/.scripts/toggle_tray.sh
+
+# Sound
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
-bindsym Pause exec bash ~/.scripts/media.sh play-pause
-bindsym Control+F24 exec bash ~/.scripts/media.sh previous
-bindsym Control+F26 exec bash ~/.scripts/media.sh next
-bindsym Control+F25 exec bash ~/.scripts/media.sh play-pause
-
+# Music
 bindsym XF86AudioPrev exec bash ~/.scripts/media.sh previous
 bindsym XF86AudioNext exec bash ~/.scripts/media.sh next
 bindsym XF86AudioPlay exec bash ~/.scripts/media.sh play-pause
+bindsym Control+F24 exec bash ~/.scripts/media.sh previous
+bindsym Control+F26 exec bash ~/.scripts/media.sh next
+bindsym Control+F25 exec bash ~/.scripts/media.sh play-pause
+bindsym Pause exec bash ~/.scripts/media.sh play-pause
 
-bindsym XF86PowerOff exec pm-suspend
+# Brightness
 bindsym XF86MonBrightnessUp exec xbacklight +5
 bindsym XF86MonBrightnessDown exec xbacklight -5
 
-bindsym --release Mod4+l exec slock
+# Screen
 bindsym Mod4+m exec bash ~/.scripts/monitor_off.sh
 bindsym Mod4+o exec bash ~/.scripts/monitor_office.sh
 bindsym Mod4+h exec bash ~/.scripts/monitor_home.sh
 
-bindsym F19 exec rofi -show drun -config ~/.config/rofi/launcher
-bindsym Mod4+n exec exec bash ~/.config/rofi/modis/power.sh
+# Printscreen
+bindsym Print exec maim ~/Pictures/Screenshots/"$(date +"%Y-%h-%d %H-%M-%S").png"
+bindsym --release Mod4+Print exec bash ~/.config/rofi/modis/printscreen.sh
 
-bindsym --release $mod+Escape exec ~/temp/sshcenas.sh 2> ~/temp/logfile
+# Rofis
+bindsym Mod4+p exec bash ~/.config/rofi/modis/power.sh
+bindsym Mod4+t exec bash ~/.config/rofi/modis/translate.sh
+bindsym Mod4+f exec bash ~/.config/rofi/modis/files.sh
+bindsym Mod4+c exec bash ~/.config/rofi/modis/configs.sh
+bindsym Mod4+w exec bash ~/.config/rofi/modis/workspace.sh
+
+# Programs
+bindsym $mod+Return exec terminator
+bindsym $mod+t exec terminator
+bindsym $mod+s exec subl3 -n
+
+#bindsym --release $mod+Escape exec ~/temp/sshcenas.sh 2> ~/temp/logfile
 #bindsym $mod+Escape exec xev
 
 
-#Startup------------------------------------------------------------------------
 
+# Programs-----------------------------------------------------------------------
+
+# Assigns
+assign [class="Atom"] → $ws2
+assign [class="Wine" instance="Hearthstone.exe"] → $ws4
+assign [class="Wine" instance="Darkstone.exe"] → $ws4
+assign [class="Slack"] → $ws8
+assign [class="Caprine"] → $ws8
+assign [class="smplayer"] → $ws9
+assign [class="lyricfier"] → $ws9
+for_window [class="Spotify"] move to workspace $ws9
+#assign [class="Eog"] → $ws9
+#assign [title="OpenGL.*"] → $ws9
+
+# Settings
+for_window [title="File Operation Progress"] move absolute position 1440 px 65 px       # Size: 450x108
+for_window [title="Calculator"] move absolute position 1536 px 65 px                    # Size: 354x411
+for_window [title="Slack Call Minipanel"] move absolute position 1610 px 65 px          # Size: 280x64
+for_window [title="Slack Call Minipanel"] sticky enable
+for_window [title="Slack Call Minipanel:*"] floating enable
+#for_window [class="Wine" instance="Darkstone.exe"] floating enable
+#for_window [title="ImageMagick:*"] floating enable
+#for_window [title="OpenGL.*"] floating enable
+
+
+
+# Startup------------------------------------------------------------------------
+
+# Desktop Manager
 exec compton
-#exec_always pkill yabar; sleep 1; yabar
-exec_always killall polybar; killall polybar; polybar main; polybar secondary;
+exec_always killall polybar; killall polybar; polybar main; polybar tray; polybar secondary;
 exec nm-applet
-
+exec_always python ~/Workspaces/configs/scripts/random_pokemon_wallpaper.py
 #exec bash ~/.scripts/BatteryWallpaper.sh
 #exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
-exec_always python ~/Workspaces/configs/scripts/random_pokemon_wallpaper.py
 
-
+# Programs
 exec transmission-daemon
 exec slack
-#exec caprine
+exec redshift-gtk
 exec spotify
+exec dropbox
+#exec caprine
+#exec npm start --prefix ~/Programs/lyricfier
 #exec "/opt/PB for Desktop/pb-for-desktop"
-
 #exec --no-startup-id i3-msg 'workspace $ws1; exec terminator'
 #exec slock
 
+# Settings
+exec pacmd load-module module-alsa-sink device=hw:2,1
 exec_always export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
