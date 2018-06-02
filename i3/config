@@ -1,6 +1,6 @@
 # General------------------------------------------------------------------------
 
-set $BG #1E1E20
+set $BG #2e3436
 set $FG #333745
 set $TXT #DAEDE2
 set $C1 #77C4D3
@@ -85,7 +85,7 @@ bindsym Shift+F26 move container to workspace $ws6
 bindsym Shift+F28 move container to workspace $ws8
 bindsym Shift+F29 move container to workspace $ws9
 
-bindsym $mod+c move workspace to output right
+bindsym $mod+c move workspace to output up
 bindsym $mod+Tab workspace back_and_forth
 
 
@@ -196,6 +196,7 @@ bindsym $mod+s exec subl3 -n
 assign [class="Atom"] → $ws2
 assign [class="Wine" instance="Hearthstone.exe"] → $ws4
 assign [class="Wine" instance="Darkstone.exe"] → $ws4
+assign [instance="crx_ejjicmeblgpmajnghnpcppodonldlgfn"] → $ws6 # Google Calendar
 assign [class="Slack"] → $ws8
 assign [class="Caprine"] → $ws8
 assign [class="smplayer"] → $ws9
@@ -232,6 +233,7 @@ exec slack
 exec redshift-gtk
 exec spotify
 exec dropbox
+exec /usr/bin/chromium --profile-directory=Default --app-id=ejjicmeblgpmajnghnpcppodonldlgfn
 #exec caprine
 #exec npm start --prefix ~/Programs/lyricfier
 #exec "/opt/PB for Desktop/pb-for-desktop"

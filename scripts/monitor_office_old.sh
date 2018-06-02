@@ -1,7 +1,11 @@
 #!/bin/sh
 
+# Config
+xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+xrandr --addmode DP1 "1680x1050_60.00"
+
 # Top
-xrandr --output DP1 --mode 1920x1080 --above eDP1
+xrandr --output eDP1 --pos 0x1050 --output DP1 --mode 1680x1050_60.00 --pos 120x0
 
 # Left
 #xrandr --output eDP1 --pos 1680x0 --output DP1 --mode 1680x1050_60.00 --pos 0x30
