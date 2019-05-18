@@ -17,15 +17,15 @@ set $base08 #ee829f
 set $base0F #fcc09e
 
 # Widow Colours         border  background text    indicator
-client.focused          $base01 $base01    $base07 $base0F
-client.focused_inactive $base02 $base02    $base03 $base0F
-client.unfocused        $base02 $base02    $base03 $base0F
-client.urgent           $base02 $base08    $base00 $base0F
+# client.focused          $base01 $base01    $base07 $base0F
+# client.focused_inactive $base02 $base02    $base03 $base0F
+# client.unfocused        $base02 $base02    $base03 $base0F
+# client.urgent           $base02 $base08    $base00 $base0F
 
 font pango:System San Francisco Display 12
 smart_gaps on
 gaps outer 0
-gaps inner 60
+gaps inner 10
 hide_edge_borders both
 new_window pixel 0
 
@@ -48,7 +48,6 @@ bindsym $mod+v split v
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 
@@ -120,21 +119,21 @@ mode "move" {
         bindsym $mod+r mode "resize"
 }
 
-bindsym F30 mode "notifications"
-bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
-mode "notifications" {
-        bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
-        bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
-
-        bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
-        bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
-
-        bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
-        bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
-
-        bindsym F30 mode "default"
-        bindsym Escape mode "default"
-}
+# bindsym F30 mode "notifications"
+# bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
+# mode "notifications" {
+#         bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
+#         bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
+# 
+#         bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
+#         bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
+# 
+#         bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
+#         bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
+# 
+#         bindsym F30 mode "default"
+#         bindsym Escape mode "default"
+# }
 
 
 
@@ -203,7 +202,8 @@ assign [class="smplayer"] → $ws9
 assign [class="lyricfier"] → $ws9
 for_window [class="Spotify"] move to workspace $ws9
 #assign [class="Eog"] → $ws9
-#assign [title="OpenGL.*"] → $ws9
+assign [title="OpenGL.*"] → $ws9
+for_window [title="OpenGL.*"] floating enable
 
 # Settings
 for_window [title="File Operation Progress"] move absolute position 1440 px 65 px       # Size: 450x108
@@ -220,20 +220,21 @@ for_window [title="Slack Call Minipanel:*"] floating enable
 # Startup------------------------------------------------------------------------
 
 # Desktop Manager
+exec_always pulseaudio --start
 exec compton
-exec_always killall polybar; killall polybar; polybar main; polybar tray; polybar secondary;
+exec_always bash ~/.scripts/refresh_polybar.sh
 exec nm-applet
-exec_always python ~/Workspaces/configs/scripts/random_pokemon_wallpaper.py
-#exec bash ~/.scripts/BatteryWallpaper.sh
-#exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
+# exec_always python ~/Workspaces/configs/scripts/random_pokemon_wallpaper.py
+# exec bash ~/.scripts/BatteryWallpaper.sh
+exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
 
 # Programs
 exec transmission-daemon
-exec slack
-exec redshift-gtk
-exec spotify
-exec dropbox
-exec /usr/bin/chromium --profile-directory=Default --app-id=ejjicmeblgpmajnghnpcppodonldlgfn
+# exec slack
+# exec redshift-gtk
+# exec spotify
+# exec dropbox
+# exec /usr/bin/chromium --profile-directory=Default --app-id=ejjicmeblgpmajnghnpcppodonldlgfn
 #exec caprine
 #exec npm start --prefix ~/Programs/lyricfier
 #exec "/opt/PB for Desktop/pb-for-desktop"
@@ -241,5 +242,7 @@ exec /usr/bin/chromium --profile-directory=Default --app-id=ejjicmeblgpmajnghnpc
 #exec slock
 
 # Settings
-exec pacmd load-module module-alsa-sink device=hw:2,1
 exec_always export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+
+#System
+exec_always sudo ~/Workspaces/configs/scripts/sync_packages.sh

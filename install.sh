@@ -57,7 +57,7 @@ ln -s $(echo $CONFIG_PATH/yabar) ~/.config/yabar
 #Zsh
 rm ~/.oh-my-zsh
 rm -r ~/.oh-my-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 rm ~/.zshrc
 ln -s $(echo $CONFIG_PATH/zsh/.zshrc) ~/.zshrc
 rm ~/.zprofile

@@ -86,6 +86,8 @@ source $ZSH/oh-my-zsh.sh
 #General-------------------------------------------------------------------------
 eval $(keychain --eval --quiet --noask id_rsa ~/.ssh/id_rsa)
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+eval $(thefuck --alias)
+alias fuck="fuck --yeah"
 
 
 #Ruby---------------------------------------------------------------------------

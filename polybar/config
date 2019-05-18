@@ -15,7 +15,8 @@ foreground-alt = #EA2E49
 primary = #77C4D3
 secondary = #F6F792
 alert = #EA2E49
-transparent = #cc000000
+transparent = #CC000000
+good = #00FF00
 
 [bar/main]
 monitor = eDP1
@@ -37,16 +38,17 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = RobotoMono:pixelsize=15
-font-1 = FontAwesome:pixelsize=22
+font-1 = FontAwesome:pixelsize=15
 
 fixed-center = true
 
-modules-left = notifications
+tray-position = left
 modules-center = i3
-modules-right = wlan volume battery date
+modules-right = packages-ok packages-warning wlan volume battery date
 
 [bar/tray]
 monitor = eDP1
+bottom = false
 width = 100%
 fixed-center = true
 override-redirect = true
@@ -86,7 +88,7 @@ font-1 = FontAwesome:pixelsize=22
 
 modules-left = 
 modules-center = i3
-modules-right = 
+modules-right = temp0 temp1 temp2 temp3
 
 
 [module/i3]
@@ -124,7 +126,7 @@ interface = wlp5s0
 interval = 1.0
 
 format-connected = "   <label-connected>  "
-format-connected-underline = #00ff00
+format-connected-underline = ${colors.good}
 format-disconnected-underline = ${self.format-connected-underline}
 
 label-connected = %essid%
@@ -147,13 +149,15 @@ label = " %time%%date% "
 
 [module/volume]
 type = internal/volume
-format-volume = <label-volume>
 
-label-volume = "  %percentage% "
+format-volume = " <ramp-volume> <label-volume> "
+label-volume = "%percentage% "
+ramp-volume-0 = "  "
+ramp-volume-1 = " "
 label-volume-foreground = ${colors.foreground}
 format-volume-underline = ${colors.primary}
 
-label-muted =  %percentage%
+label-muted = "  muted "
 label-muted-foreground = ${colors.foreground}
 format-muted-underline = ${colors.alert}
 
@@ -164,37 +168,81 @@ battery = BAT1
 adapter = ADP1
 full-at = 96
 
-format-charging = " <animation-charging> <label-charging> "
-format-charging-underline = ${colors.secondary}
-
+format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-underline = ${colors.good}
+format-charging-underline = ${colors.secondary}
 format-discharging-underline = ${colors.secondary}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-format-full-underline = #00ff00
+label-full = "%percentage%% "
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
 
-ramp-capacity-0 = 
+ramp-capacity-0 = " "
 ramp-capacity-0-foreground = ${colors.alert}
-ramp-capacity-1 = 
+ramp-capacity-1 = " "
 ramp-capacity-1-foreground = ${colors.alert}
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 ramp-capacity-foreground = ${colors.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
+
+
+[module/temp]
+type = internal/temperature
+warn-temperature = 60
+label = " %temperature-c% "
+format-underline = ${colors.primary}
+label-warn = " %temperature-c% "
+label-warn-underline = ${colors.alert}
+
+[module/temp0]
+inherit = module/temp
+thermal-zone = 0
+
+[module/temp1]
+inherit = module/temp
+thermal-zone = 1
+
+[module/temp2]
+inherit = module/temp
+thermal-zone = 2
+
+[module/temp3]
+inherit = module/temp
+thermal-zone = 3
 
 [module/notifications]
 type = custom/script
 exec = "python2 ~/Workspaces/configs/scripts/yanotify/yanotify.py"
 tail = true
+
+[module/packages]
+type = custom/script
+label = "  %output% "
+exec = "sudo ~/Workspaces/configs/scripts/available_packages.sh"
+tail = false
+interval = 21600
+
+[module/packages-ok]
+inherit = module/packages
+exec-if = test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -gt 0 && test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -lt 100
+format-underline = ${colors.primary}
+
+[module/packages-warning]
+inherit = module/packages
+exec-if = test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -gt 99
+format-underline = ${colors.alert}
 
 [module/none]
 type = custom/script
