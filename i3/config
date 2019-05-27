@@ -17,18 +17,17 @@ set $base08 #ee829f
 set $base0F #fcc09e
 
 # Widow Colours         border  background text    indicator
-# client.focused          $base01 $base01    $base07 $base0F
-# client.focused_inactive $base02 $base02    $base03 $base0F
-# client.unfocused        $base02 $base02    $base03 $base0F
-# client.urgent           $base02 $base08    $base00 $base0F
+client.focused          $base01 $base01    $base07 $base0F
+client.focused_inactive $base02 $base02    $base03 $base0F
+client.unfocused        $base02 $base02    $base03 $base0F
+client.urgent           $base02 $base08    $base00 $base0F
 
 font pango:System San Francisco Display 12
 smart_gaps on
 gaps outer 0
 gaps inner 10
 hide_edge_borders both
-new_window pixel 0
-
+default_border pixel 0
 
 
 # GeneralKeybindings-------------------------------------------------------------
@@ -38,6 +37,7 @@ floating_modifier $mod
 bindsym $mod+F4 kill
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
 
 bindsym $mod+F24 focus left
 bindsym $mod+F22 focus down
@@ -184,6 +184,10 @@ bindsym $mod+Return exec terminator
 bindsym $mod+t exec terminator
 bindsym $mod+s exec subl3 -n
 
+# Others
+# Floating Video
+bindsym Mod4+v floating toggle; sticky toggle; resize set 530 300; move position 10 770
+
 #bindsym --release $mod+Escape exec ~/temp/sshcenas.sh 2> ~/temp/logfile
 #bindsym $mod+Escape exec xev
 
@@ -202,8 +206,8 @@ assign [class="smplayer"] → $ws9
 assign [class="lyricfier"] → $ws9
 for_window [class="Spotify"] move to workspace $ws9
 #assign [class="Eog"] → $ws9
-assign [title="OpenGL.*"] → $ws9
-for_window [title="OpenGL.*"] floating enable
+#assign [title="OpenGL.*"] → $ws9
+#for_window [title="OpenGL.*"] floating enable
 
 # Settings
 for_window [title="File Operation Progress"] move absolute position 1440 px 65 px       # Size: 450x108
@@ -211,6 +215,7 @@ for_window [title="Calculator"] move absolute position 1536 px 65 px            
 for_window [title="Slack Call Minipanel"] move absolute position 1610 px 65 px          # Size: 280x64
 for_window [title="Slack Call Minipanel"] sticky enable
 for_window [title="Slack Call Minipanel:*"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
 #for_window [class="Wine" instance="Darkstone.exe"] floating enable
 #for_window [title="ImageMagick:*"] floating enable
 #for_window [title="OpenGL.*"] floating enable
