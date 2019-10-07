@@ -96,16 +96,6 @@ eval "$(rbenv init -)"
 #export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 #export PATH="/opt/heroku-toolbelt/bin:$PATH"
 
-
-#Python-------------------------------------------------------------------------
-
-#export WORKON_HOME=~/.python_envs
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-#source /usr/bin/virtualenvwrapper.sh
-
-#Android------------------------------------------------------------------------
-
-#export ANDROID_HOME=/opt/android-sdk/
-#export PATH=${PATH}:${ANDROID_HOME}/tools
-#export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+#Node---------------------------------------------------------------------------
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"

@@ -1,0 +1,33 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "editor.codeLens": false,
+    "window.zoomLevel": 1,
+    "msbuildProjectTools": {
+        "logging": {
+            "level": "Information",
+            "seq": {},
+            "file": "",
+            "trace": false
+        },
+        "language": {
+            "disableFeature": {},
+            "useClassicProvider": false,
+            "disable": {
+                "hover": false
+            }
+        },
+        "nuget": {
+            "newestVersionsFirst": true,
+            "includePreRelease": true,
+            "disablePrefetch": false
+        },
+        "schemaVersion": 1
+    },
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.activityBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 2,
+    "editor.rulers": [80,120]
+}

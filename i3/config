@@ -84,7 +84,7 @@ bindsym Shift+F26 move container to workspace $ws6
 bindsym Shift+F28 move container to workspace $ws8
 bindsym Shift+F29 move container to workspace $ws9
 
-bindsym $mod+c move workspace to output up
+bindsym $mod+c move workspace to output right
 bindsym $mod+Tab workspace back_and_forth
 
 
@@ -124,13 +124,13 @@ mode "move" {
 # mode "notifications" {
 #         bindsym Up exec python2 ~/.scripts/yanotify/InputSender.py Up
 #         bindsym Down exec python2 ~/.scripts/yanotify/InputSender.py Down
-# 
+#
 #         bindsym Shift+Up exec python2 ~/.scripts/yanotify/InputSender.py Smart Up
 #         bindsym Shift+Down exec python2 ~/.scripts/yanotify/InputSender.py Smart Down
-# 
+#
 #         bindsym Shift+F30 exec python2 ~/.scripts/yanotify/InputSender.py Clear
 #         bindsym Shift+Del exec python2 ~/.scripts/yanotify/InputSender.py Delete
-# 
+#
 #         bindsym F30 mode "default"
 #         bindsym Escape mode "default"
 # }
@@ -143,7 +143,7 @@ mode "move" {
 bindsym F19 exec rofi -show drun -config ~/.config/rofi/launcher
 bindsym XF86PowerOff exec pm-suspend
 bindsym --release Mod4+l exec slock
-bindsym $mod+b exec bash ~/.scripts/toggle_tray.sh
+bindsym F30 exec bash ~/.scripts/swap_polybar.sh
 
 # Sound
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
@@ -238,7 +238,6 @@ exec transmission-daemon
 # exec slack
 # exec redshift-gtk
 # exec spotify
-# exec dropbox
 # exec /usr/bin/chromium --profile-directory=Default --app-id=ejjicmeblgpmajnghnpcppodonldlgfn
 #exec caprine
 #exec npm start --prefix ~/Programs/lyricfier

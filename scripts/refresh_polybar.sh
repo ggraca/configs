@@ -3,5 +3,7 @@ pgrep "polybar" | while read -r pid ; do
 done
 
 polybar main &
-# polybar tray &
-# polybar secondary &
+polybar second_monitor &
+polybar secondary &
+sleep 0.3
+xdotool search --name "polybar-secondary_eDP-1" windowunmap

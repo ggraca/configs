@@ -16,6 +16,7 @@ format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 
 
+
 ; ---------------------------- Bars ----------------------------
 [bar/base]
 monitor = eDP-1
@@ -35,16 +36,28 @@ click-right = nm-connection-editor
 
 [bar/main]
 inherit = bar/base
-modules-left = ethernet wireless ;i3-mode
+modules-left = ethernet wireless i3-mode
 modules-center = i3-workspaces
-modules-right = packages-ok packages-warning volume battery date
-
+modules-right = volume battery date
 
 [bar/secondary]
 inherit = bar/base
-modules-left = 
+modules-left = temp0 temp1 temp2 temp3 i3-mode
 modules-center = i3-workspaces
-modules-right = temp0 temp1 temp2 temp3
+modules-right = packages-ok packages-warning cpu ram hdd-data hdd-system
+override-redirect = true
+
+[bar/tray]
+inherit = bar/base
+modules-left = i3-mode
+tray-position = left
+
+[bar/second_monitor]
+inherit = bar/base
+monitor = DP-1
+modules-left = ethernet wireless i3-mode
+modules-center = i3-workspaces
+modules-right = volume battery date
 
 
 ; ---------------------------- Modules ----------------------------
@@ -80,7 +93,9 @@ label-visible-underline = ${colors.primary}
 type = internal/i3
 format = <label-mode>
 
+format-padding = 0
 label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.background}
 label-mode-padding = 2
 
 
@@ -168,9 +183,8 @@ animation-charging-framerate = 750
 type = internal/temperature
 warn-temperature = 60
 label = " %temperature-c% "
-format-underline = ${colors.primary}
 label-warn = " %temperature-c% "
-label-warn-underline = ${colors.bad}
+format-warn-underline = ${colors.bad}
 
 [module/temp0]
 inherit = module/temp
@@ -189,6 +203,33 @@ inherit = module/temp
 thermal-zone = 3
 
 
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+
+[module/ram]
+type = internal/memory
+label =  %percentage_used%%
+
+
+[module/hdd]
+type = internal/fs
+format-mounted-underline = ${colors.neutral}
+
+[module/hdd-system]
+inherit = module/hdd
+mount-0 = /
+label-mounted =  System: %percentage_used%%
+
+[module/hdd-data]
+inherit = module/hdd
+mount-0 = /mnt/data
+label-mounted =  Data: %percentage_used%%
+
+
+
+; ---------------------------- Custom Modules ----------------------------
 [module/notifications]
 type = custom/script
 exec = "python2 ~/Workspaces/configs/scripts/yanotify/yanotify.py"
@@ -205,7 +246,7 @@ interval = 21600
 [module/packages-ok]
 inherit = module/packages
 exec-if = test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -gt 0 && test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -lt 100
-format-underline = ${colors.primary}
+format-underline = ${colors.neutral}
 
 [module/packages-warning]
 inherit = module/packages

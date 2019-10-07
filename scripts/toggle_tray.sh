@@ -1,1 +1,0 @@
-[[ $(xdotool search --onlyvisible --name "polybar-tray_eDP-1") ]] && (xdotool search --name "polybar-tray_eDP-1" windowunmap && xdotool search --name "Polybar tray window" windowunmap) || (xdotool search --name "polybar-tray_eDP-1" windowmap && xdotool search --name "Polybar tray window" windowmap)
