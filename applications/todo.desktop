@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Exec=subl3 -n ~/pCloudDrive/todo.txt
-Name=Todo
