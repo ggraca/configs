@@ -1,15 +1,13 @@
-# i3-gaps
+# Sway
 
-<img src='screenshots/i3-gaps-march-2019.png'>
+<img src='screenshots/sway-august-2022.png'>
 
-# i3-gaps info
+# Sway info
 
-Window Manager - i3-gaps
+Window Manager - Sway
 
-Wallpaper - https://alpha.wallhaven.cc/wallpaper/691676
+Wallpaper - https://wallhaven.cc/w/vgv59m
 
-Taskbar - https://github.com/polybar/polybar
+Taskbar - https://github.com/Alexays/Waybar
 
 Menu - https://github.com/davatorium/rofi
-
-Custom Notifications Display - Check scripts/yanotify and polybar configs
