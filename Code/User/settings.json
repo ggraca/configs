@@ -1,10 +1,7 @@
 {
     "window.menuBarVisibility": "toggle",
-    "editor.codeLens": false,
-    "window.zoomLevel": 1,
     "explorer.confirmDelete": false,
     "workbench.activityBar.visible": false,
-    "breadcrumbs.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.tabSize": 2,
     "editor.rulers": [
@@ -33,7 +30,9 @@
     "github.copilot.enable": {
         "*": true,
         "yaml": true,
-        "plaintext": false,
+        "plaintext": true,
         "markdown": false
-    }
+    },
+    "window.zoomLevel": 2,
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }

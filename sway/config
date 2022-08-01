@@ -25,9 +25,7 @@ client.unfocused        $base02 $base02    $base03 $base0F	$base01
 client.urgent           $base02 $base08    $base00 $base0F	$base01
 
 font pango:System San Francisco Display 12
-smart_gaps on
-gaps outer 0
-gaps inner 10
+gaps inner 30
 hide_edge_borders both
 default_border pixel 0
 
@@ -39,6 +37,10 @@ input "*" tap enabled
 
 # Workspaces---------------------------------------------------------------------
 
+set $dell34 "Dell Inc. DELL S3422DWG 2LGYS63"
+set $dell24 "Dell Inc. DELL U2412M YPPY085F086L"
+set $dell13 "Unknown 0x5B2D 0x00000000"
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -46,18 +48,27 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output eDP-1
-workspace $ws6 output eDP-1
+workspace $ws1 output $dell34
+workspace $ws2 output $dell34
+workspace $ws3 output $dell34
+workspace $ws4 output $dell34
+workspace $ws5 output $dell24
+workspace $ws6 output $dell24
 
-output DP-2 pos 0 0
-output eDP-1 pos 0 1200
+output "*" bg ~/tmp/wallpapers/pattern.jpg tile
 
-output "*" bg ~/tmp/wallpapers/wallpaper.png fill
+output $dell34 {
+	mode --custom 3440x1440
+	bg ~/tmp/wallpapers/wallpaper.jpg fill
+}
 
+output $dell24 {
+	bg ~/tmp/wallpapers/vertical_night.jpg fill	
+}
+
+output $dell13 {
+	bg ~/tmp/wallpapers/sky_snow.jpg fill	
+}
 
 # GeneralKeybindings-------------------------------------------------------------
 
@@ -83,6 +94,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym Print exec grim ~/tmp/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
 bindsym Shift+Print exec grim -g "$(slurp)" ~/tmp/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
+
 
 # Shortcuts----------------------------------------------------------------------
 
@@ -130,7 +142,7 @@ bindsym {
 
 bindsym {
 # $mod+a
-	$mod+s 				exec subl3 -n
+	$mod+s 				exec subl -n
 # $mod+d
 # $mod+f
 	$mod+f 				fullscreen toggle
@@ -152,6 +164,7 @@ $mod+c 				move workspace to output left
 # $mod+m
 }
 
+
 # Programs-----------------------------------------------------------------------
 
 assign [class="Slack"] → $ws5
@@ -162,12 +175,17 @@ for_window [title="Calculator"] floating enable
 for_window [title="Slack Call Minipanel:*"] floating enable
 for_window [title="Slack Call Minipanel"] sticky enable
 
+for_window [title="Belts Demo"] floating enable
+#; move position 2500 200
+
+
 # Devices------------------------------------------------------------------------
 
 input type:pointer {
     accel_profile adaptive
     pointer_accel -0.2
 }
+
 
 # Startup------------------------------------------------------------------------
 
@@ -182,7 +200,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # Desktop Manager
 # exec feh --bg-scale ~/Pictures/Wallpapers/Primary.jpg
-exec kanshi
+exec_always "pkill kanshi; kanshi"
 exec waybar
 exec nm-applet --indicator
 exec blueman-applet
@@ -193,3 +211,5 @@ exec libinput-gestures-setup start
 # exec redshift-gtk
 exec pcloud
 exec ydotoold
+
+workspace $ws1
