@@ -1,33 +1,38 @@
 {
     "window.menuBarVisibility": "toggle",
-    "editor.codeLens": false,
-    "window.zoomLevel": 1,
-    "msbuildProjectTools": {
-        "logging": {
-            "level": "Information",
-            "seq": {},
-            "file": "",
-            "trace": false
-        },
-        "language": {
-            "disableFeature": {},
-            "useClassicProvider": false,
-            "disable": {
-                "hover": false
-            }
-        },
-        "nuget": {
-            "newestVersionsFirst": true,
-            "includePreRelease": true,
-            "disablePrefetch": false
-        },
-        "schemaVersion": 1
-    },
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Atom One Dark",
     "workbench.activityBar.visible": false,
-    "breadcrumbs.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.tabSize": 2,
-    "editor.rulers": [80,120]
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "files.insertFinalNewline": true,
+    "editor.renderControlCharacters": false,
+    "files.trimTrailingWhitespace": true,
+    "gitblame.ignoreWhitespace": true,
+    "workbench.colorTheme": "Atom One Dark",
+    "ruby.interpreter.commandPath": "dcrun ruby",
+    "ruby.pathToBundler": "dcrun bundle",
+    "ruby.rctComplete.commandPath": "dcrun rct-complete",
+    "ruby.useLanguageServer": true,
+    "ruby.useBundler": true,
+    "ruby.lint": {
+    },
+    "ruby.specCommand": "bundle exec rspec",
+    "ruby.rubocop.suppressRubocopWarnings": true,
+    "ruby.rubocop.useBundler": true,
+    "ruby.intellisense": "rubyLocate",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": false
+    },
+    "window.zoomLevel": 2,
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }

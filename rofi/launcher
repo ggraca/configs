@@ -1,6 +1,1 @@
-rofi.fullscreen: true
-
-rofi.font: RobotoMono 40
-rofi.padding: 300
-
-rofi.kb-cancel: Escape,F19
+@theme "theme"
