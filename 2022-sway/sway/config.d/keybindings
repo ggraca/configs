@@ -1,0 +1,152 @@
+floating_modifier $mod normal
+bindsym --release Super_L exec $menu
+
+bindsym {
+	$mod+Escape reload
+	$mod+Tab exec $windows
+
+	$mod+Left focus left
+	$mods+Left move left
+	
+	$mod+Down focus down
+	$mods+Down move down
+	
+	$mod+Up focus up
+	$mods+Up move up
+	
+	$mod+Right focus right
+	$mods+Right move right
+
+	$mod+space floating toggle
+}
+
+bindsym {
+	$mod+1  workspace 1
+	$mods+1	move container to workspace 1
+	
+	$mod+2  workspace 2
+	$mods+2	move container to workspace 2
+	
+	$mod+3  workspace 3
+	$mods+3	move container to workspace 3
+	
+	$mod+4  workspace 4
+	$mods+4	move container to workspace 4
+	
+	$mod+5  workspace 5
+	$mods+5	move container to workspace 5
+	
+	$mod+6  workspace 6
+	$mods+6	move container to workspace 6
+}
+
+bindsym {
+	$mod+q  kill
+	$mods+q	nop
+	
+	$mod+w  nop
+	$mods+w	nop
+	
+	$mod+e  nop
+	$mods+e	nop
+	
+	$mod+r  nop
+	$mods+r	nop
+	
+	$mod+t  exec $term-float
+	$mods+t	nop
+	
+	$mod+y  nop
+	$mods+y	nop
+
+	$mod+u  nop
+	$mods+u	nop
+	
+	$mod+i  nop
+	$mods+i	nop
+
+	$mod+o  nop
+	$mods+o	nop
+
+	$mod+p  nop
+	$mods+p	nop
+}
+
+bindsym {
+	$mod+a  nop
+	$mods+a	nop
+	
+	$mod+s  nop
+	$mods+s	nop
+	
+	$mod+d  nop
+	$mods+d	nop
+	
+	$mod+f  fullscreen
+	$mods+f	nop
+	
+	$mod+g  nop
+	$mods+g	nop
+	
+	$mod+h  splith
+	$mods+h	nop
+
+	$mod+j  nop
+	$mods+j	nop
+	
+	$mod+k  nop
+	$mods+k	nop
+
+	$mod+l  exec $lock
+	$mods+l	exec $powermenu
+}
+
+bindsym {
+	$mod+z  nop
+	$mods+z	nop
+	
+	$mod+x  nop
+	$mods+x	nop
+	
+	$mod+c  nop
+	$mods+c	nop
+	
+	$mod+v  splitv
+	$mods+v	nop
+	
+	$mod+b  nop
+	$mods+b	nop
+	
+	$mod+n  nop
+	$mods+n	nop
+
+	$mod+m  nop
+	$mods+m	nop
+}
+
+# Switch the current container between different layout styles
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+# Move the currently focused window to the scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+#bindsym $mod+minus scratchpad show
+
+
+bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
+bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
+bindsym --locked XF86AudioMute exec pamixer -t
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+# bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
+# bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
+# bindsym $mod+t exec $cheatsheet

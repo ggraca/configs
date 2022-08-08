@@ -3,7 +3,7 @@ Login Manager
 - sudo pacman -Rns sddm eos-sddm-theme
 
 Utils
-- sudo pacman -S gvfs # Thunar utils (wastebin, mounting volumes, remote access)
+- sudo pacman -S gvfs tumbler # Thunar utils (wastebin, mounting volumes, remote access, thumbnails)
 - Set chrome as default:
 	- Remove BROWSER=firefox from /etc/environment
 	- xdg-settings set default-web-browser google-chrome.desktop
@@ -13,6 +13,7 @@ Apps
 - google-chrome
 - pcloud-drive
 - spotify
+- slack-desktop
 
 Displays / eGPU
 - Create a new desktop entry in /usr/share/wayland-sessions (duplicate sway.desktop). Change the Exec line to "Exec=env WLR_DRM_DEVICES=/dev/dri/card1 sway"

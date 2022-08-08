@@ -1,12 +1,45 @@
-# Initial Setup 
-# exec ~/set_once.sh
+### Modifiers
+set {
+    $mod Mod4
+    $mods $mod+Shift
+}
 
-# Config for sway
-#
-# Read `man 5 sway` for a complete reference.
+### Screens
+set {
+    $dell34 "Dell Inc. DELL S3422DWG 2LGYS63"
+    $dell24 "Dell Inc. DELL U2412M YPPY085F086L"
+    $dell13 "Unknown 0x5B2D 0x00000000"
+}
 
-# user config directory
+### System Tools
+set {
+    $dynamic-display-config pkill kanshi; kanshi
+    $system-auth /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+    $notifications-gui mako
+    $network-gui nm-applet --indicator
+    $set-keyboard-layout 'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
+    $set-keyboard-variants 'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
+    $set-gtk-theme ~/.config/sway/scripts/import-gsettings
+}
+
+### Lock Screen
+set {
+    $lock ~/.config/sway/scripts/lockman.sh
+    $idle-lock swayidle -w timeout 1070 'swaylock -f -C ~/.config/swaylock/config' timeout 770 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -C ~/.config/swaylock/config'
+}
+
+### Wofi Menus
+set {
+    $menu pkill wofi || wofi -c ~/.config/wofi/config -I
+    $powermenu ~/.config/waybar/scripts/power-menu.sh
+    $windows ~/.config/wofi/windows.py
+    $cheatsheet xed ~/.config/sway/cheatsheet
+}
+
+### Apps
+set {
+    $term-float xfce4-terminal
+    $autostart-entries dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+}
+
 include $HOME/.config/sway/config.d/*
-
-# only enable this if every app you use is compatible with wayland
-# xwayland disable

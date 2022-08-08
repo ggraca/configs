@@ -1,0 +1,24 @@
+input type:keyboard {
+    xkb_layout gb
+}
+
+input type:pointer {
+    accel_profile adaptive
+}
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+}
+
+output "*" bg ~/.config/sway/default.png fill
+
+output $dell34 {
+    mode --custom 3440x1440
+    bg ~/.config/sway/wide.jpg fill
+}
+
+output $dell24 {
+    bg ~/.config/sway/vertical.jpg fill 
+}
