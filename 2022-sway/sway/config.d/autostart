@@ -23,6 +23,3 @@ exec {
      $network-gui
      $autostart-entries
 }
-
-# Sway Fader
-# exec python3 ~/.config/sway/scripts/swayfader.py
