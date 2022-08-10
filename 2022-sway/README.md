@@ -41,3 +41,6 @@ Audio controls
 
 Emojis
 ?
+
+
+https://wiki.archlinux.org/title/bluetooth#Dual_boot_pairing

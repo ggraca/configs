@@ -25,9 +25,9 @@ set {
 ### Wofi Menus
 set {
     $menu pkill wofi || wofi -c ~/.config/wofi/config -I
-    $powermenu ~/.config/waybar/scripts/power-menu.sh
+    $powermenu ~/.config/sway/scripts/power-menu.sh
     $windows ~/.config/wofi/windows.py
-    $cheatsheet xed ~/.config/sway/cheatsheet
+    $cheatsheet ~/.config/sway/scripts/cheatsheet.sh
     $screenshot-menu ~/.config/sway/scripts/screenshot.sh
 }
 

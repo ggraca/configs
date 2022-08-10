@@ -145,10 +145,6 @@ Arc-Dark Color Scheme
     color: orange;
 }
 
-#pulseaudio {
-    padding-top:6px;
-}
-
 #pulseaudio.muted {
     color: @highlight;
 }
@@ -162,6 +158,7 @@ Arc-Dark Color Scheme
 }
 
 #workspaces {
+    margin-left: 10px;
     font-size:13px;
 }
 
@@ -182,21 +179,11 @@ Arc-Dark Color Scheme
     color: #c9545d;
 }
 
+#custom-launcher,
 #custom-power {
+    font-size:15px;
     margin-left:15px;
     margin-right:15px;
-    font-size:15px;
-}
-
-#custom-launcher {
-    font-size:15px;
-    margin-left:15px;
-    margin-right:10px;
-}
-
-#backlight.icon {
-    padding-right:1px;
-    font-size: 13px;
 }
 
 #clock.uk {

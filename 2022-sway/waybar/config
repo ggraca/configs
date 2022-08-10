@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
 
     "modules-left": [
         "custom/launcher",
+        "custom/gapleft",
         "sway/workspaces"
     ],
  
@@ -37,7 +37,7 @@
     ],
 
     "custom/launcher": {
-        "format":" ",
+        "format":"",
         "on-click": "exec wofi -c ~/.config/wofi/config -I",
         "tooltip": false,
     },
@@ -95,7 +95,7 @@
     },
 
     "idle_inhibitor": {
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons":{
             "activated": "",
             "deactivated": ""
@@ -105,16 +105,16 @@
     "custom/keyboard-layout": {
         "format": "",
         "tooltip": false,
-        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+        "on-click": "~/.config/sway/scripts/cheatsheet.sh",
     },
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon}{volume}%",
+        "format": "{icon} {volume}%",
         "format-icons": {
             "headphone": "",
             "hands-free": "וֹ",
-            "headset": "  ",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -163,7 +163,7 @@
 
     "custom/power": {
         "format":"⏻",
-        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+        "on-click": "exec ~/.config/sway/scripts/power-menu.sh",
         "tooltip": false,
     },
 

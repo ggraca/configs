@@ -10,6 +10,7 @@ output {
     $dell34 {
         mode --custom 3440x1440
         bg ~/.config/sway/wide.jpg fill
+        adaptive_sync on
     }
 
     $dell24 {
