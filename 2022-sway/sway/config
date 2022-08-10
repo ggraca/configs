@@ -18,8 +18,8 @@ set {
 
 ### Lock Screen
 set {
-    $lock ~/.config/sway/scripts/lockman.sh
-    $idle-lock swayidle -w timeout 1070 'swaylock -f -C ~/.config/swaylock/config' timeout 770 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -C ~/.config/swaylock/config'
+    $lock ~/.config/sway/scripts/lock.sh
+    $idle-lock swayidle -w timeout 300 '$lock' before-sleep '$lock'
 }
 
 ### Wofi Menus

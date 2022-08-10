@@ -22,7 +22,7 @@ Displays / eGPU
 - ln -s ~/Workspaces/configs/2022-sway/kanshi ~/.config/kanshi
 
 Bluetooth
-- sudo pacman -S bluez bluez-utils
+- sudo pacman -S bluez bluez-utils blueberry
 - sudo systemctl enable bluetooth.service
 - Uncomment `AutoEnable=true` from `/etc/bluetooth/main.conf` to allow a bluetooth keyboard on GDM
 
@@ -31,6 +31,7 @@ Sway config
 - ln -s ~/Workspaces/configs/2022-sway/waybar ~/.config/waybar
 
 Lock Screen
+- yay -S swaylock-effects
 
 Screenshots
 - specify dir
