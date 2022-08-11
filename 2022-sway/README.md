@@ -1,48 +1,64 @@
-Login Manager
+# Arch + Sway 2022
+
+![](/2022-sway/screenshot.png "Sway 2022 screenshot")
+
+# General info
+
+- Base system - EndeavourOS/Arch with Sway (community edition)
+- Wallpaper - https://wallhaven.cc/w/o3epj5
+- Taskbar - Waybar
+- Menus - Wofi
+- Login Manager - GDM
+- Screen Lock - swaylock-effects
+
+# Setup (WIP)
+
+### Base install
+- Install EndevourOS, selecting sway from the community versions
+
+### Change Login Manager
+
 - Use EOS Welcome prompt to select GDM
 - sudo pacman -Rns sddm eos-sddm-theme
 
-Utils
+### Utils
 - sudo pacman -S gvfs tumbler # Thunar utils (wastebin, mounting volumes, remote access, thumbnails)
 - Set chrome as default:
 	- Remove BROWSER=firefox from /etc/environment
 	- xdg-settings set default-web-browser google-chrome.desktop
 
-Apps
+### Apps
 - sublime-text-4
 - google-chrome
 - pcloud-drive
 - spotify
 - slack-desktop
 
-Displays / eGPU
+### Displays / eGPU
 - Create a new desktop entry in /usr/share/wayland-sessions (duplicate sway.desktop). Change the Exec line to "Exec=env WLR_DRM_DEVICES=/dev/dri/card1 sway"
 - https://www.reddit.com/r/framework/comments/sba273/guide_framework_laptop_running_amd_radeon_egpu/
 - yay -S kanshi
 - ln -s ~/Workspaces/configs/2022-sway/kanshi ~/.config/kanshi
 
-Bluetooth
+### Bluetooth
 - sudo pacman -S bluez bluez-utils blueberry
 - sudo systemctl enable bluetooth.service
 - Uncomment `AutoEnable=true` from `/etc/bluetooth/main.conf` to allow a bluetooth keyboard on GDM
 - https://wiki.archlinux.org/title/bluetooth#Dual_boot_pairing
 
-Sway config
+### Sway config
 - ln -s ~/Workspaces/configs/2022-sway/sway ~/.config/sway
 - ln -s ~/Workspaces/configs/2022-sway/waybar ~/.config/waybar
 
-Lock Screen
+### Lock Screen
 - yay -S swaylock-effects
 
-Screenshots
+### Screenshots
 - specify dir
 
 
-Audio controls
+### Audio controls
 - sudo pacman -S pamixer playerctl
 
-Emojis
+### Emojis
 ?
-
-
-https://wiki.archlinux.org/title/bluetooth#Dual_boot_pairing
