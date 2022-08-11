@@ -65,12 +65,14 @@
     },
 
     "clock#weekday": {
+        "interval": 10,
         "format": "{:%A}",
+        "tooltip-format": "{:%e %B %Y}"
     },
 
     "clock#date": {
         "interval": 10,
-        "format": "{:%m-%d-%Y}",
+        "format": "{:%d-%m-%Y}",
         "tooltip-format": "{:%e %B %Y}"
     },
 
@@ -84,7 +86,6 @@
         "timezone": "America/New_York",
         "interval": 10,
         "format": "NY: {:%H:%M}",
-        "tooltip-format": "{:%e %B %Y}"
     },
 
     "clock#sf": {
