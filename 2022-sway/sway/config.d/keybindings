@@ -5,10 +5,7 @@ bindsym --whole-window $mod+button5 workspace next
 
 bindsym {
 	$mod+Escape reload
-	$mod+Tab exec $windows
 	Mod1+Tab workspace back_and_forth
-
-	$mod+space floating toggle
 
 	$mod+Left focus left
 	$mods+Left move left
@@ -77,7 +74,7 @@ bindsym {
 	$mods+a	nop
 	
 	$mod+s  exec $screenshot
-	$mods+s	exec $screenshot-menu
+	$mods+s	exec $screenshotmenu
 	
 	$mod+d  nop
 	$mods+d	nop

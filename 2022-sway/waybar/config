@@ -164,7 +164,7 @@
 
     "custom/power": {
         "format":"⏻",
-        "on-click": "exec ~/.config/sway/scripts/power-menu.sh",
+        "on-click": "exec ~/.config/wofi/power.sh",
         "tooltip": false,
     },
 

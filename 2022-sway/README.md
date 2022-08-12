@@ -57,6 +57,7 @@ yay -S spotify slack-desktop visual-studio-code-bin pcloud-drive
 ln -s ~/Workspaces/configs/2022-sway/sway ~/.config/sway
 ln -s ~/Workspaces/configs/2022-sway/waybar ~/.config/waybar
 ln -s ~/Workspaces/configs/2022-sway/kanshi ~/.config/kanshi
+ln -s ~/Workspaces/configs/2022-sway/wofi ~/.config/wofi
 ```
 
 ## Tweaks
@@ -100,3 +101,5 @@ A new entry should show as an option in the Login Manager. More info [here](http
 ### TODO
 - Specify Screenshot directory
 - Enable Emojis in Chrome
+- Unable to wake up from suspend (when connected to eGPU)
+- Logout causes the system to suspend (when connected to eGPU)

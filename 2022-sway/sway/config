@@ -22,13 +22,12 @@ set {
     $idle-lock swayidle -w timeout 300 '$lock' before-sleep '$lock'
 }
 
-### Wofi Menus
+### Menus
 set {
     $menu pkill wofi || wofi -c ~/.config/wofi/config -I
-    $powermenu ~/.config/sway/scripts/power-menu.sh
-    $windows ~/.config/wofi/windows.py
     $cheatsheet ~/.config/sway/scripts/cheatsheet.sh
-    $screenshot-menu ~/.config/sway/scripts/screenshot.sh
+    $powermenu ~/.config/wofi/power.sh
+    $screenshotmenu ~/.config/wofi/screenshot.sh
 }
 
 ### Apps
