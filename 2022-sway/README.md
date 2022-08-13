@@ -103,3 +103,5 @@ A new entry should show as an option in the Login Manager. More info [here](http
 - Enable Emojis in Chrome
 - Unable to wake up from suspend (when connected to eGPU)
 - Logout causes the system to suspend (when connected to eGPU)
+- Unlock keyring at startup
+- Use rofi instead of wofi for menus
