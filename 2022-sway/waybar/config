@@ -29,7 +29,7 @@
         "cpu",
         "memory",
         "custom/gapright",
-        "battery",
+        "upower",
         "custom/gapright",
         "tray",
         "custom/gapright",
@@ -144,6 +144,12 @@
             "warning": 70,
             "critical": 90
         }
+    },
+
+    "upower": {
+         "hide-if-empty": true,
+         "tooltip": true,
+         "tooltip-spacing": "auto"
     },
 
     "battery": {

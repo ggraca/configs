@@ -20,6 +20,10 @@ Install EndevourOS, selecting sway from the community versions during the instal
 ## Install additional packages
 ### System
 ```bash
+# Default Shell
+yay -S zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Default Browser
 yay -S google-chrome
 
@@ -30,7 +34,7 @@ yay -S sublime-text-4
 sudo pacman -S kanshi
 
 # Blurred lockscreen
-yay -S swaylock-effects  
+yay -S swaylock-effects
 ```
 
 ### Utils
@@ -53,11 +57,19 @@ yay -S spotify slack-desktop visual-studio-code-bin pcloud-drive
 
 ## Link configs
 ```bash
-# Assuming this repo was cloned under ~/Workspaces/
+# Remove default configs
+rm -rf ~/.config/sway ~/.config/waybar ~/.config/kanshi ~/.config/wofi ~/.zshrc
+
+# Clone repo into folder
+mkdir ~/Workspaces
+git clone https://github.com/ggraca/configs.git ~/Workspaces/configs
+
+# Link configs
 ln -s ~/Workspaces/configs/2022-sway/sway ~/.config/sway
 ln -s ~/Workspaces/configs/2022-sway/waybar ~/.config/waybar
 ln -s ~/Workspaces/configs/2022-sway/kanshi ~/.config/kanshi
 ln -s ~/Workspaces/configs/2022-sway/wofi ~/.config/wofi
+ln -s ~/Workspaces/configs/2022-sway/zsh/.zshrc ~/.zshrc
 ```
 
 ## Tweaks
@@ -93,12 +105,11 @@ The way to fix this is by initialising sway/wayland specifying the eGPU as the m
 
 Fix:
 - Create a new desktop entry in `/usr/share/wayland-sessions` (duplicate sway.desktop).
-- Change the Exec line to `"Exec=env WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0 sway"`
+- Change the Exec line to `Exec=env WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0 sway`
 
 A new entry should show as an option in the Login Manager. More info [here](https://www.reddit.com/r/framework/comments/sba273/guide_framework_laptop_running_amd_radeon_egpu/)
 
-
-### TODO
+## TODO
 - Specify Screenshot directory
 - Enable Emojis in Chrome
 - Unable to wake up from suspend (when connected to eGPU)
