@@ -1,20 +1,19 @@
 set {
     $dell34 "Dell Inc. DELL S3422DWG 2LGYS63"
     $dell24 "Dell Inc. DELL U2412M YPPY085F086L"
-    $dell13 "Unknown 0x5B2D 0x00000000"
 }
 
 output {
-    "*" bg ~/.config/sway/default.png fill
+    "*" bg ../wallpapers/default.png fill
     
     $dell34 {
         mode --custom 3440x1440
-        bg ~/.config/sway/wide.jpg fill
+        bg ../wallpapers/wide.jpg fill
         adaptive_sync on
     }
 
     $dell24 {
-        bg ~/.config/sway/vertical.jpg fill 
+        bg ../wallpapers/vertical.jpg fill 
     }
 }
 
@@ -29,7 +28,7 @@ workspace {
 
 input {
     type:keyboard {
-        xkb_layout gb
+        xkb_layout "us,gb"
     }
 
     type:pointer {
@@ -39,6 +38,5 @@ input {
     type:touchpad {
         dwt enabled
         tap enabled
-        natural_scroll enabled
     }
 }

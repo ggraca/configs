@@ -23,6 +23,7 @@ Install EndevourOS, selecting sway from the community versions during the instal
 # Default Shell
 yay -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s /bin/zsh
 
 # Default Browser
 yay -S google-chrome

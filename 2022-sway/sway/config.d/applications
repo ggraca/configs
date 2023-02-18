@@ -28,6 +28,7 @@ for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 for_window [title="Belts Demo"] floating enable
+for_window [title="bgfx"] floating enable
 
 # Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen

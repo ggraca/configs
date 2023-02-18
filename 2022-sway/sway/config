@@ -10,8 +10,6 @@ set {
     $system-auth /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     $notifications-gui mako
     $network-gui nm-applet --indicator
-    $set-keyboard-layout 'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
-    $set-keyboard-variants 'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
     $set-gtk-theme ~/.config/sway/scripts/import-gsettings
     $screenshot /usr/share/sway/scripts/grimshot --notify save output
 }

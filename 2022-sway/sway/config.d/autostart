@@ -11,8 +11,6 @@ exec {
 
 exec_always {
      $dynamic-display-config
-     $set-keyboard-layout
-     $set-keyboard-variants
      $set-gtk-theme
 }
 
