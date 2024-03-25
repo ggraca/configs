@@ -1,4 +1,5 @@
 set {
+    $dell49 "Samsung Electric Company LS49AG95 HNTW401001"
     $dell34 "Dell Inc. DELL S3422DWG 2LGYS63"
     $dell24 "Dell Inc. DELL U2412M YPPY085F086L"
 }
@@ -17,18 +18,10 @@ output {
     }
 }
 
-workspace {
-    1 output $dell34
-    2 output $dell34
-    3 output $dell34
-    4 output $dell34
-    5 output $dell24
-    6 output $dell24
-}
-
 input {
     type:keyboard {
         xkb_layout "us,gb"
+        xkb_options caps:super
     }
 
     type:pointer {

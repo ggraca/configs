@@ -1,11 +1,11 @@
 #!/bin/bash
  
 declare -A options=(
-  ["Area"]="/usr/share/sway/scripts/grimshot --notify save area"
-  ["Window"]="/usr/share/sway/scripts/grimshot --notify save window"
-  ["Active"]="/usr/share/sway/scripts/grimshot --notify save active"
-  ["Screen"]="/usr/share/sway/scripts/grimshot --notify save screen"
-  ["Output"]="/usr/share/sway/scripts/grimshot --notify save output"
+  ["Area"]="grimshot --notify save area"
+  ["Window"]="grimshot --notify save window"
+  ["Active"]="grimshot --notify save active"
+  ["Screen"]="grimshot --notify save screen"
+  ["Output"]="grimshot --notify save output"
 )
 
 selected=$(printf '%s\n' "${!options[@]}" | wofi --conf=$HOME/.config/wofi/config.screenshot --style=$HOME/.config/wofi/style.widgets.css)

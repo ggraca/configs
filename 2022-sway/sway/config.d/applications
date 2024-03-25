@@ -1,7 +1,3 @@
-# Assign workspaces
-assign [app_id="slack"] 5
-assign [app_id="spotify"] 6
-
 # set floating (nontiling)for apps needing it:
 for_window [class="Yad" instance="yad"] floating enable
 for_window [app_id="yad"] floating enable

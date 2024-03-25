@@ -2,28 +2,18 @@ profile laptop {
 	output eDP-1 enable mode 1920x1200
 }
 
-profile home {
-	output "Dell Inc. DELL U2412M YPPY085F086L" enable mode 1920x1200 position 0,0 transform 270
-	output "Dell Inc. DELL S3422DWG 2LGYS63" enable mode 3440x1440 position 1200,240
+profile home_ultrawide {
+	output "Samsung Electric Company LS49AG95 HNTW401001" enable mode 5120x1440@120Hz position 0,0
+	output eDP-1 disable
+}
+
+profile home_ultrawide_dongle {
+	output "Samsung Electric Company LS49AG95 HNTW401001" enable mode 5120x1440@120Hz position 0,0
+	output "sisel muhendislik EK1080T4KHR 0x00005445" disable
 	output eDP-1 disable
 }
 
 profile home_wide {
-	output "Dell Inc. DELL S3422DWG 2LGYS63" enable mode 3440x1440 position 0,0
+	output "LG Electronics LG HDR WQHD 0x00008491" enable mode 3440x1440@50Hz position 0,0
 	output eDP-1 disable
-}
-
-profile vertical {
-	output "Dell Inc. DELL U2412M YPPY085F086L" enable mode 1920x1200 transform 90 position 0,0
-	output eDP-1 disable
-}
-
-profile tv {
-	output "Samsung Electric Company SAMSUNG 0x00000F00" enable mode 1920x1080 position 0,0
-	output eDP-1 disable
-}
-
-profile semide_4k {
-	output "Goldstar Company Ltd LG HDR 4K 102NTDV8G778" enable mode 2560x1440@60Hz position 0,0 
-	output eDP-1 enable mode 1920x1200 position 320,1440
 }

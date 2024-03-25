@@ -4,6 +4,16 @@ set {
     $mods $mod+Shift
 }
 
+### Dimensions
+set {
+    $gap 5
+    $sticky_gap 1280
+    $width 1275
+    $height 1392
+    $y_offset 43
+    $right_window_x 3840
+}
+
 ### System Tools
 set {
     $dynamic-display-config pkill kanshi; kanshi
