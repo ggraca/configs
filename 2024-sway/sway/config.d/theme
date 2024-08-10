@@ -1,6 +1,6 @@
 gaps inner $gap
 gaps outer 0
-gaps horizontal $sticky_gap
+# gaps horizontal $sticky_gap
 
 default_border pixel 0
 font pango:Noto Sans Regular 10

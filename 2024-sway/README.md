@@ -25,7 +25,7 @@ yay -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # System
-yay -S sway swayidle swaylock-effects kanshi wofi waybar otf-font-awesome
+yay -S sway swaybg swayidle swaylock-effects kanshi wofi mako waybar otf-font-awesome
 
 # Default Browser
 yay -S google-chrome
@@ -41,6 +41,9 @@ yay -S gvfs tumbler
 
 # Audio and Music shortcuts
 yay -S pamixer
+
+# Display configuration
+yay -S wdisplays
 
 # Bluetooth (utils and GUI)
 yay -S blueberry
@@ -92,6 +95,10 @@ Fix:
 - Change the Exec line to `Exec=env WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0 sway`
 
 A new entry should show as an option in the Login Manager. More info [here](https://www.reddit.com/r/framework/comments/sba273/guide_framework_laptop_running_amd_radeon_egpu/)
+
+### VSCode
+- Vscode won't detect the gnome keyring:
+	- https://github.com/microsoft/vscode/issues/187338#issuecomment-1630300049
 
 ## Dev environments
 ```bash

@@ -16,10 +16,10 @@ exec_always {
 
 exec {
      exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+     exec export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
      $system-auth
      $idle-lock
      $notifications-gui
      $network-gui
      $autostart-entries
-     exec export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
 }
