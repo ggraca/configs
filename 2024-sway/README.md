@@ -24,20 +24,17 @@ Install EndevourOS, selecting sway from the community versions during the instal
 yay -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# System
-yay -S sway swaybg swayidle swaylock-effects kanshi wofi mako waybar otf-font-awesome
+# Core Apps
+yay -S brave-bin sublime-text-4
 
-# Default Browser
-yay -S google-chrome
-
-# Default Editor
-yay -S sublime-text-4
+# User Apps
+yay -S spotify visual-studio-code-bin pcloud-drive steam goverlay nordvpn-bin
+# yay -S libappindicator-gtk3 icu69
 ```
 
-### Utils
+## Sway
 ```bash
-# Thunar (wastebin, mounting volumes, remote access, thumbnails)
-yay -S gvfs tumbler
+yay -S sway swaybg swayidle swaylock-effects kanshi wofi mako waybar otf-font-awesome
 
 # Audio and Music shortcuts
 yay -S pamixer
@@ -50,16 +47,11 @@ yay -S blueberry
 sudo systemctl enable bluetooth.service
 ```
 
-### Apps
-```bash
-yay -S spotify visual-studio-code-bin pcloud-drive
-# yay -S libappindicator-gtk3 icu69
-```
 
 ## Link configs
 ```bash
 # Remove default configs
-rm -rf ~/.config/sway ~/.config/waybar ~/.config/kanshi ~/.config/wofi ~/.zshrc
+rm -rf ~/.config/sway ~/.config/waybar ~/.config/kanshi ~/.config/wofi ~/.zshrc ~/.profile
 
 # Clone repo into folder
 mkdir ~/ws
@@ -70,7 +62,8 @@ ln -s ~/ws/configs/2024-sway/sway ~/.config/sway
 ln -s ~/ws/configs/2024-sway/waybar ~/.config/waybar
 ln -s ~/ws/configs/2024-sway/kanshi ~/.config/kanshi
 ln -s ~/ws/configs/2024-sway/wofi ~/.config/wofi
-ln -s ~/ws/configs/2024-sway/zsh/.zshrc ~/.zshrc
+ln -s ~/ws/configs/2024-sway/home/.zshrc ~/.zshrc
+ln -s ~/ws/configs/2024-sway/home/.profile ~/.profile
 ```
 
 ## Tweaks
@@ -106,6 +99,21 @@ yay -S rbenv ruby-build
 rbenv install -l
 rbenv install 3.3.0
 rbenv global 3.3.0
+
+yay -S nodenv nodenv-node-build nodenv-nvmrc
+nodenv -l
+nodenv install 20.11.1
+nodenv global 20.11.1
+
+yay -S postgresql
+sudo su - postgres
+initdb -D /var/lib/postgres/data
+createuser --interactive
+exit
+sudo systemctl enable --now postgresql
+
+yay -S redis
+sudo systemctl enable --now redis
 ```
 
 ## TODO

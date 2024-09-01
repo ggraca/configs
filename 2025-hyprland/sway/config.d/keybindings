@@ -1,0 +1,62 @@
+floating_modifier $mod
+bindsym --release Super_L exec $menu
+bindsym	Alt+Tab workspace back_and_forth
+bindsym --whole-window $mod+button4 workspace prev
+bindsym --whole-window $mod+button5 workspace next
+
+bindsym {
+	$mod+1 workspace 1
+	$mods+1 move container to workspace 1
+	$mod+2 workspace 2
+	$mods+2 move container to workspace 2
+	$mod+3 workspace 3
+	$mods+3 move container to workspace 3
+	$mod+4 workspace 4
+	$mods+4 move container to workspace 4
+	$mod+5 workspace 5
+	$mods+5 move container to workspace 5
+}
+
+bindsym {
+	$mod+q  kill
+	$mod+w  nop
+	$mod+e  exec $run-editor
+	$mod+r  reload
+	$mod+t  exec $run-terminal
+
+	$mod+y mark --replace "left"; floating enable; sticky enable; resize set $width $height; move absolute position $gap $y_offset; 
+	$mod+u  workspace prev
+	$mods+u move container workspace prev; workspace prev
+	$mod+i  workspace next
+	$mods+i move container workspace next; workspace next
+	$mod+o mark --replace "right"; floating enable; sticky enable; resize set $width $height; move absolute position $right_window_x $y_offset;
+
+	$mod+p  nop # Save for Display config
+}
+
+bindsym {
+	$mod+a  nop # move workspace to output right
+	$mod+s  exec $screenshot
+	$mods+s	exec $screenshotmenu
+	$mod+d  floating toggle
+	$mod+f  fullscreen
+	$mod+h  exec $cheatsheet
+	$mod+j  nop
+	$mod+k  nop
+	$mod+l  exec $lock
+	$mods+l	exec $powermenu
+}
+
+bindsym --locked {
+	XF86AudioRaiseVolume exec pamixer -ui 2
+	XF86AudioLowerVolume exec pamixer -ud 2
+	XF86AudioMute exec pamixer -t
+	
+	XF86AudioPlay exec playerctl play
+	XF86AudioPause exec playerctl pause
+	XF86AudioNext exec playerctl next
+	XF86AudioPrev exec playerctl previous
+	
+	XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+	XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+}
