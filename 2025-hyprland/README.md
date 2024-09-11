@@ -40,6 +40,9 @@ yay -S hyprland hyprpaper hypridle hyprlock
 # Run desktop entries (autostart)
 yay -S dex
 
+# Screenshot
+yay -S grim slurp
+
 # Bar, menus, notifications, screenshare context
 yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland
 
@@ -52,22 +55,20 @@ yay -S wdisplays
 # Bluetooth (utils and GUI)
 yay -S blueberry
 sudo systemctl enable --now bluetooth.service
-
-# screenshot: grim or slurp
 ```
 
 
 ## Link configs
 ```bash
 # Remove default configs
-rm -rf ~/.config/waybar ~/.config/wofi ~/.zshrc ~/.profile
+rm -rf ~/.config/waybar ~/.config/wofi ~/.config/hypr ~/.zshrc ~/.profile
 
 # Clone repo into folder
 mkdir ~/ws
 git clone https://github.com/ggraca/configs.git ~/ws/configs
 
 # Link configs
-# ln -s ~/ws/configs/2025-hyprland/hyperland ~/.config/hyperland
+ln -s ~/ws/configs/2025-hyprland/hypr ~/.config/hypr
 ln -s ~/ws/configs/2025-hyprland/waybar ~/.config/waybar
 ln -s ~/ws/configs/2025-hyprland/wofi ~/.config/wofi
 ln -s ~/ws/configs/2025-hyprland/home/.zshrc ~/.zshrc
