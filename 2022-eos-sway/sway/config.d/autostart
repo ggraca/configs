@@ -1,0 +1,24 @@
+bar {
+    swaybar_command waybar
+}
+
+# GTK3 applications take a long time to start
+exec {
+     systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+     hash dbus-update-activation-environment 2>/dev/null && \
+          dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+}
+
+exec_always {
+     $dynamic-display-config
+     $set-gtk-theme
+}
+
+exec {
+     $system-auth
+     $idle-lock
+     $notifications-gui
+     $network-gui
+     $autostart-entries
+     exec export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
+}

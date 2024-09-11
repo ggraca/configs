@@ -1,1 +1,0 @@
-pacman -Qu | wc -l

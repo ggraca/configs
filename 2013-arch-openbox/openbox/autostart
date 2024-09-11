@@ -1,0 +1,20 @@
+compton &
+source ~/Scripts/monitor.sh
+source ~/Scripts/monitor.sh
+
+conky &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+tint2 &
+volumeicon &
+cbatticon -c "sudo pm-suspend" &
+
+slack -u &
+guake &
+kupfer --no-splash &
+
+transmission-daemon &
+
+#python ~/Scripts/PyTimeLapse.py
+
+#python Workspaces/shiftappens_roadshow/main.py &

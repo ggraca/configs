@@ -1,0 +1,19 @@
+profile laptop {
+	output eDP-1 enable mode 1920x1200
+}
+
+profile home_ultrawide {
+	output "Samsung Electric Company LS49AG95 HNTW401001" enable mode 5120x1440@120Hz position 0,0
+	output eDP-1 disable
+}
+
+profile home_ultrawide_dongle {
+	output "Samsung Electric Company LS49AG95 HNTW401001" enable mode 5120x1440@120Hz position 0,0
+	output "sisel muhendislik EK1080T4KHR 0x00005445" disable
+	output eDP-1 disable
+}
+
+profile home_wide {
+	output "LG Electronics LG HDR WQHD 0x00008491" enable mode 3440x1440@50Hz position 0,0
+	output eDP-1 disable
+}

@@ -1,0 +1,274 @@
+; ---------------------------- Settings ----------------------------
+[colors]
+background = #2e3436
+background-alt = #333745
+foreground = #DAEDE2
+primary = #77C4D3
+good = #00FF00
+neutral = #F6F792
+bad = #EA2E49
+
+
+[settings]
+format-padding = 2
+format-underline = ${colors.primary}
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+
+
+; ---------------------------- Bars ----------------------------
+[bar/base]
+monitor = eDP-1
+height = 35
+padding = 2
+module-margin = 1
+underline-size = 3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = RobotoMono:pixelsize=15
+font-1 = FontAwesome5FreeSolid:pixelsize=13
+
+click-right = nm-connection-editor
+
+
+[bar/main]
+inherit = bar/base
+modules-left = ethernet wireless i3-mode
+modules-center = i3-workspaces
+modules-right = volume battery date
+
+[bar/secondary]
+inherit = bar/base
+modules-left = temp0 temp1 temp2 temp3 i3-mode
+modules-center = i3-workspaces
+modules-right = packages-ok packages-warning cpu ram hdd-data hdd-system
+override-redirect = true
+
+[bar/tray]
+inherit = bar/base
+modules-left = i3-mode
+tray-position = left
+
+[bar/second_monitor]
+inherit = bar/base
+monitor = DP-1
+modules-left = ethernet wireless i3-mode
+modules-center = i3-workspaces
+modules-right = volume battery date
+
+
+; ---------------------------- Modules ----------------------------
+[module/i3-workspaces]
+type = internal/i3
+format = <label-state>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+
+format-padding = 0
+
+label-focused = %index%
+label-focused-padding = 2
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-underline= ${colors.background}
+
+label-urgent = %index%
+label-urgent-padding = 2
+label-urgent-background = ${colors.bad}
+
+label-visible = %index%
+label-visible-padding = 2
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.primary}
+
+
+[module/i3-mode]
+type = internal/i3
+format = <label-mode>
+
+format-padding = 0
+label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.background}
+label-mode-padding = 2
+
+
+[module/ethernet]
+type = internal/network
+interface = enp4s0
+interval = 1.0
+
+format-connected = ""
+format-connected-underline = ${colors.good}
+
+[module/wireless]
+type = internal/network
+interface = wlp5s0
+interval = 1.0
+
+label-connected = %essid%
+format-connected = "  <label-connected>"
+format-connected-underline = ${colors.good}
+
+format-disconnected = ""
+format-disconnected-underline = ${colors.bad}
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+time = " %H:%M"
+date-alt = " %d/%m/%Y"
+
+format-underline = ${colors.primary}
+
+label = "%time%%date%"
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = "<ramp-volume> <label-volume>"
+label-volume = "%percentage% "
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+format-volume-underline = ${colors.primary}
+
+label-muted = " muted"
+format-muted-underline = ${colors.bad}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 95
+
+format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-underline = ${colors.good}
+format-charging-underline = ${colors.neutral}
+format-discharging-underline = ${colors.neutral}
+
+label-full = "%percentage%%"
+label-charging = "%percentage%%"
+label-discharging = "%percentage%%"
+
+ramp-capacity-0 = ""
+ramp-capacity-0-foreground = ${colors.bad}
+ramp-capacity-1 = ""
+ramp-capacity-1-foreground = ${colors.bad}
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-framerate = 750
+
+
+[module/temp]
+type = internal/temperature
+warn-temperature = 60
+label = " %temperature-c% "
+label-warn = " %temperature-c% "
+format-warn-underline = ${colors.bad}
+
+[module/temp0]
+inherit = module/temp
+thermal-zone = 0
+
+[module/temp1]
+inherit = module/temp
+thermal-zone = 1
+
+[module/temp2]
+inherit = module/temp
+thermal-zone = 2
+
+[module/temp3]
+inherit = module/temp
+thermal-zone = 3
+
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+
+[module/ram]
+type = internal/memory
+label =  %percentage_used%%
+
+
+[module/hdd]
+type = internal/fs
+format-mounted-underline = ${colors.neutral}
+
+[module/hdd-system]
+inherit = module/hdd
+mount-0 = /
+label-mounted =  System: %percentage_used%%
+
+[module/hdd-data]
+inherit = module/hdd
+mount-0 = /mnt/data
+label-mounted =  Data: %percentage_used%%
+
+
+
+; ---------------------------- Custom Modules ----------------------------
+[module/notifications]
+type = custom/script
+exec = "python2 ~/Workspaces/configs/scripts/yanotify/yanotify.py"
+tail = true
+
+
+[module/packages]
+type = custom/script
+label = " %output%"
+exec = "sudo ~/Workspaces/configs/scripts/available_packages.sh"
+tail = false
+interval = 21600
+
+[module/packages-ok]
+inherit = module/packages
+exec-if = test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -gt 0 && test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -lt 100
+format-underline = ${colors.neutral}
+
+[module/packages-warning]
+inherit = module/packages
+exec-if = test $(sudo ~/Workspaces/configs/scripts/available_packages.sh) -gt 99
+format-underline = ${colors.bad}
+
+
+[module/windscribe]
+type = custom/script
+tail = false
+interval = 1
+
+[module/windscribe-disconnected]
+inherit = module/windscribe
+label = ""
+exec = "echo ' '"
+exec-if = windscribe status | grep DISCONNECTED
+format-underline = ${colors.primary}
+
+[module/windscribe-connected]
+inherit = module/windscribe
+label = ""
+exec = "echo ' '"
+exec-if = windscribe status | grep "CONNECTED -- "
+format-underline = ${colors.good}
