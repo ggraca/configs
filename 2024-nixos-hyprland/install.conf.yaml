@@ -5,9 +5,9 @@
 - clean: ['~']
 
 - link:
-    ~/.config/waybar: waybar
+    ~/.scripts: scripts
     ~/.config/hypr: hypr
+    ~/.config/waybar: waybar
+    ~/.config/swaync: swaync
     ~/.profile: home/.profile
     ~/.zshrc: home/.zshrc
-
-

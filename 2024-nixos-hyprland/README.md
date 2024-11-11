@@ -49,8 +49,8 @@ yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland
 # Audio and Music shortcuts
 yay -S pamixer
 
-# Display configuration
-yay -S wdisplays
+# Wayland helpers
+yay -S wdisplays ydotool
 
 # Bluetooth (utils and GUI)
 yay -S blueberry
