@@ -7,6 +7,7 @@
 - link:
     ~/.scripts: scripts
     ~/.config/hypr: hypr
+    ~/.config/rofi: rofi # https://github.com/adi1090x/rofi
     ~/.config/waybar: waybar
     ~/.config/swaync: swaync
     ~/.profile: home/.profile
