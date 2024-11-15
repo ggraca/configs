@@ -4,33 +4,40 @@
     border-radius: 0;
     margin: 0;
     padding: 0;
-    color: #bebebe;
+    color: #E5E9F0;
+    transition: none;
 }
 
 
 /* The whole bar */
 #waybar {
-    background-color: #404552;
+    background-color: #383E4A;
     font-size: 18px;
     font-weight: 400;
+    /* border-bottom: 3px solid #81A1C1; */
 }
 
 .module {
     padding: 8px 8px;
 }
 
-.module:hover:not(#tray):not(#workspaces) {
-    background-color: #5c616b;
-}
-
-#tray>*:hover {
-    background-color: #5c616b;
-}
-
 #workspaces>button {
     padding: 0px 6px;
     font-size: 18px;
 }
+
+#workspaces.special * {
+    color: grey;
+}
+
+.module:hover:not(#tray):not(#workspaces),
+#tray>*:hover,
+#workspaces>*:hover,
+#workspaces>*:hover * {
+    color: #383E4A;
+    background-color: #81A1C1;
+}
+
 
 /* -----------------------------------------------------------------------------
  * Modules styles
@@ -43,5 +50,5 @@
 }
 
 .critical {
-    color: red;
+    color: #BF616A;
 }

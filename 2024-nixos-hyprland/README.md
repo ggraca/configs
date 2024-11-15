@@ -43,8 +43,8 @@ yay -S dex
 # Screenshot
 yay -S grim slurp
 
-# Bar, menus, notifications, screenshare context
-yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland
+# Bar, menus, notifications, screenshare context, appearance
+yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland nwg-look
 
 # Audio and Music shortcuts
 yay -S pamixer
