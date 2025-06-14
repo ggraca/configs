@@ -44,7 +44,7 @@ yay -S dex
 yay -S grim slurp
 
 # Bar, menus, notifications, screenshare context, appearance
-yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland nwg-look
+yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland nwg-look htop nvtop
 
 # Audio and Music shortcuts
 yay -S pamixer
@@ -83,7 +83,7 @@ rbenv install 3.3.0
 rbenv global 3.3.0
 
 yay -S nodenv nodenv-node-build nodenv-nvmrc
-nodenv -l
+nodenv install -l
 nodenv install 20.11.1
 nodenv global 20.11.1
 

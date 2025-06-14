@@ -1,0 +1,31 @@
+#!/bin/bash
+
+dgpu_graphics_pci="03:00.0"
+dgpu_audio_pci="03:00.1"
+
+dgpu_graphics_driver=$(if [[ -L /sys/bus/pci/devices/0000:$dgpu_graphics_pci/driver ]]; then basename $(readlink /sys/bus/pci/devices/0000:$dgpu_graphics_pci/driver); else echo "none"; fi)
+dgpu_audio_driver=$(if [[ -L /sys/bus/pci/devices/0000:$dgpu_audio_pci/driver ]]; then basename $(readlink /sys/bus/pci/devices/0000:$dgpu_audio_pci/driver); else echo "none"; fi)
+
+printf "Current drivers:\n\t$dgpu_graphics_pci: $dgpu_graphics_driver\n\t$dgpu_audio_pci: $dgpu_audio_driver\n"
+
+set -e
+
+if [[ "$dgpu_graphics_driver" != "none" ]]; then
+    echo "Unbinding $dgpu_graphics_driver"
+    echo "0000:$dgpu_graphics_pci" > /sys/bus/pci/drivers/$dgpu_graphics_driver/unbind
+fi
+
+if [[ "$dgpu_audio_driver" != "none" ]]; then
+    echo "Unbinding $dgpu_audio_driver"
+    echo "0000:$dgpu_audio_pci" > /sys/bus/pci/drivers/$dgpu_audio_driver/unbind
+fi
+
+if [[ "$dgpu_graphics_driver" == "amdgpu" ]]; then
+    echo "Binding vfio-pci"
+    echo "0000:$dgpu_graphics_pci" > /sys/bus/pci/drivers/vfio-pci/bind
+    echo "0000:$dgpu_audio_pci" > /sys/bus/pci/drivers/vfio-pci/bind
+else
+    echo "Binding amdgpu and snd_hda_intel"
+    echo "0000:$dgpu_graphics_pci" > /sys/bus/pci/drivers/amdgpu/bind
+    echo "0000:$dgpu_audio_pci" > /sys/bus/pci/drivers/snd_hda_intel/bind
+fi

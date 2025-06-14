@@ -2,9 +2,10 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "cpu",
-        "custom/gpu",
         "memory",
+        "cpu",
+        "custom/igpu",
+        "custom/dgpu",
     ],
 
     "modules-center": [
@@ -56,12 +57,19 @@
             "warning": 70,
             "critical": 90,
         },
-        "on-click": "gnome-terminal -- 'top'",
+        "on-click": "gnome-terminal -- 'htop'",
     },
 
-   "custom/gpu": {
+   "custom/igpu": {
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "format": "iGPU: {}%",
+        "interval": 1,
+        "on-click": "gnome-terminal -- 'nvtop'",
+    },
+
+    "custom/dgpu": {
         "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
-        "format": "GPU: {}%",
+        "format": "dGPU: {}%",
         "interval": 1,
         "on-click": "gnome-terminal -- 'nvtop'",
     },
@@ -69,7 +77,7 @@
     "memory": {
         "interval": 5,
         "format": "MEM: {}%", // Icon: memory
-        "on-click": "gnome-terminal -- 'top'",
+        "on-click": "gnome-terminal -- 'htop'",
         "states": {
             "warning": 70,
             "critical": 90
