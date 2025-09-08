@@ -5,7 +5,7 @@
 # General info
 
 - Base system - EndeavourOS + Hyprland
-- Wallpaper - https://wallhaven.cc/w/o3epj5
+- Wallpaper - https://wallhaven.cc/w/g8y12l
 - Taskbar - Waybar
 - Menus - Wofi
 - Login Manager - GDM

@@ -1,6 +1,6 @@
-# Arch + Sway 2024
+# Arch + Sway 2023
 
-![](/2024-sway/screenshot.png "Sway 2024 screenshot")
+![](/2023-sway/screenshot.png "Sway 2023 screenshot")
 
 # General info
 
@@ -58,12 +58,12 @@ mkdir ~/ws
 git clone https://github.com/ggraca/configs.git ~/ws/configs
 
 # Link configs
-ln -s ~/ws/configs/2024-sway/sway ~/.config/sway
-ln -s ~/ws/configs/2024-sway/waybar ~/.config/waybar
-ln -s ~/ws/configs/2024-sway/kanshi ~/.config/kanshi
-ln -s ~/ws/configs/2024-sway/wofi ~/.config/wofi
-ln -s ~/ws/configs/2024-sway/home/.zshrc ~/.zshrc
-ln -s ~/ws/configs/2024-sway/home/.profile ~/.profile
+ln -s ~/ws/configs/2023-sway/sway ~/.config/sway
+ln -s ~/ws/configs/2023-sway/waybar ~/.config/waybar
+ln -s ~/ws/configs/2023-sway/kanshi ~/.config/kanshi
+ln -s ~/ws/configs/2023-sway/wofi ~/.config/wofi
+ln -s ~/ws/configs/2023-sway/home/.zshrc ~/.zshrc
+ln -s ~/ws/configs/2023-sway/home/.profile ~/.profile
 ```
 
 ## Tweaks
