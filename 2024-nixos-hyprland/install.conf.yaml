@@ -12,3 +12,4 @@
     ~/.config/swaync: swaync
     ~/.profile: home/.profile
     ~/.zshrc: home/.zshrc
+    ~/.local/share/applications/custom: applications

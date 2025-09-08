@@ -77,25 +77,21 @@ cd ~/ws/configs/2024-nixos-hyprland
 
 ## Dev environments
 ```bash
-yay -S rbenv ruby-build
-rbenv install -l
-rbenv install 3.3.0
-rbenv global 3.3.0
+yay -S mise usage
+mise settings add idiomatic_version_file_enable_tools ruby
+mise use ruby@3.4.3
+mise settings add idiomatic_version_file_enable_tools node
+mise settings add idiomatic_version_file_enable_tools yarn
+mise use node@20.11.1
 
-yay -S nodenv nodenv-node-build nodenv-nvmrc
-nodenv install -l
-nodenv install 20.11.1
-nodenv global 20.11.1
 
-yay -S postgresql
-sudo su - postgres
-initdb -D /var/lib/postgres/data
-createuser --interactive
-exit
-sudo systemctl enable --now postgresql
+yay -S docker postgresql
 
-yay -S redis
-sudo systemctl enable --now redis
+docker run -d --name pg17 -v pg17data:/var/lib/postgresql/data -v /var/run/postgresql:/var/run/postgresql -e POSTGRES_HOST_AUTH_METHOD=trust -p5432:5432 postgres:17
+docker start pg17
+
+docker run -d --name redis -v redisdata:/data -p6379:6379 redis:latest
+docker start redis
 ```
 
 ## TODO
