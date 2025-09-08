@@ -9,7 +9,7 @@
 - Taskbar - Waybar
 - Menus - Wofi
 - Login Manager - GDM
-- Screen Lock - swaylock-effects
+- Screen Lock - hyprlock
 
 # Setup
 
@@ -93,11 +93,3 @@ docker start pg17
 docker run -d --name redis -v redisdata:/data -p6379:6379 redis:latest
 docker start redis
 ```
-
-## TODO
-- Specify Screenshot directory
-- Enable Emojis in Chrome
-- Unable to wake up from suspend (when connected to eGPU)
-- Logout causes the system to suspend (when connected to eGPU)
-- Unlock keyring at startup
-- Use rofi instead of wofi for menus
