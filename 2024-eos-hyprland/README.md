@@ -1,10 +1,10 @@
-# NixOS + Hyprland 2024
+# EndeavourOS + Hyprland 2024
 
-![](/2024-nixos-hyprland/screenshot.png "Hyprland 2024 screenshot")
+![](/2024-eos-hyprland/screenshot.png "Hyprland 2024 screenshot")
 
 # General info
 
-- Base system - NixOS + Hyprland
+- Base system - EndeavourOS + Hyprland
 - Wallpaper - https://wallhaven.cc/w/o3epj5
 - Taskbar - Waybar
 - Menus - Wofi
@@ -65,7 +65,7 @@ mkdir ~/ws
 git clone https://github.com/ggraca/configs.git ~/ws/configs
 
 # Link configs
-cd ~/ws/configs/2024-nixos-hyprland
+cd ~/ws/configs/2024-eos-hyprland
 ./install
 ```
 
@@ -85,7 +85,7 @@ mise settings add idiomatic_version_file_enable_tools yarn
 mise use node@20.11.1
 
 
-yay -S docker postgresql
+yay -S docker postgresql # postgresql-libs required to interact with postgres containers
 
 docker run -d --name pg17 -v pg17data:/var/lib/postgresql/data -v /var/run/postgresql:/var/run/postgresql -e POSTGRES_HOST_AUTH_METHOD=trust -p5432:5432 postgres:17
 docker start pg17
