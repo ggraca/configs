@@ -7,8 +7,8 @@
 - Base system - EndeavourOS + Hyprland
 - Wallpaper - https://wallhaven.cc/w/g8y12l
 - Taskbar - Waybar
-- Menus - Wofi
-- Login Manager - GDM
+- Menus - Rofi
+- Session Manager - greetd
 - Screen Lock - hyprlock
 
 # Setup
@@ -28,7 +28,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 yay -S brave-bin sublime-text-4
 
 # User Apps
-yay -S spotify visual-studio-code-bin pcloud-drive steam goverlay nordvpn-bin
+yay -S spotify visual-studio-code-bin pcloud-drive nordvpn-bin
+
+# Gaming
+yay -S steam goverlay
 # yay -S libappindicator-gtk3 icu69
 ```
 
@@ -93,3 +96,10 @@ docker start pg17
 docker run -d --name redis -v redisdata:/data -p6379:6379 redis:latest
 docker start redis
 ```
+
+### TODO
+
+- [ ] Brave CPU usage on google maps
+- [ ] powerprofilesctl info/triggers
+- [ ] Alternative to swaync
+- [ ]
