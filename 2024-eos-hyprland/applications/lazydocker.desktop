@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Lazydocker
-Exec=gnome-terminal -- bash -c "lazydocker"
+Exec=kitty -- bash -c "lazydocker"
 Type=Application
 Terminal=false
 Icon=docker

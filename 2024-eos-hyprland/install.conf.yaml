@@ -1,6 +1,7 @@
 - defaults:
     link:
       relink: true
+      create: true
 
 - clean: ['~']
 
@@ -10,6 +11,9 @@
     ~/.config/rofi: rofi # https://github.com/adi1090x/rofi
     ~/.config/waybar: waybar
     ~/.config/swaync: swaync
-    ~/.profile: home/.profile
     ~/.zshrc: home/.zshrc
+    ~/.gitconfig: home/.gitconfig
     ~/.local/share/applications/custom: applications
+
+- shell:
+  - [chsh -s $(which zsh), Making zsh the default shell]

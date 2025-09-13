@@ -57,27 +57,27 @@
             "warning": 70,
             "critical": 90,
         },
-        "on-click": "gnome-terminal -- 'htop'",
+        "on-click": "kitty -- 'htop'",
     },
 
    "custom/igpu": {
         "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
         "format": "iGPU: {}%",
         "interval": 1,
-        "on-click": "gnome-terminal -- 'nvtop'",
+        "on-click": "kitty -- 'nvtop'",
     },
 
     "custom/dgpu": {
         "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
         "format": "dGPU: {}%",
         "interval": 1,
-        "on-click": "gnome-terminal -- 'nvtop'",
+        "on-click": "kitty -- 'nvtop'",
     },
 
     "memory": {
         "interval": 5,
         "format": "MEM: {}%", // Icon: memory
-        "on-click": "gnome-terminal -- 'htop'",
+        "on-click": "kitty -- 'htop'",
         "states": {
             "warning": 70,
             "critical": 90

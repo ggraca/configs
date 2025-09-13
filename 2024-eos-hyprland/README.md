@@ -8,68 +8,78 @@
 - Wallpaper - https://wallhaven.cc/w/g8y12l
 - Taskbar - Waybar
 - Menus - Rofi
-- Session Manager - greetd
+- Session Manager - greetd + uwsm
 - Screen Lock - hyprlock
 
 # Setup
 
-## Base install
-Install EndevourOS, selecting sway from the community versions during the instalation.
-
-
-## Install additional packages
-### System
+## Minimal interface
 ```bash
-# Default Shell
-yay -S zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+yay -S zsh kitty hyprland rofi
 
-# Core Apps
-yay -S brave-bin sublime-text-4
+mkdir ~/ws
+git clone https://github.com/ggraca/configs ~/ws/configs # Change to ssh later
+cd ~/ws/configs/2024-eos-hyprland
+./install
+```
 
-# User Apps
-yay -S spotify visual-studio-code-bin pcloud-drive nordvpn-bin
+## Remaining OS setup
+```bash
+# System
+yay -S zsh kitty hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland waybar mako dex
+
+# Themes
+yay -S nwg-look nordic-theme oh-my-zsh-git otf-font-awesome # icons?
+
+# Screenshot, Audio and Music shortcuts, Bluetooth Utils and GUI
+yay -S grim slurp pamixer blueberry
+sudo systemctl enable --now bluetooth.service
+
+# System monitors/helpers
+yay -S ydotool htop nvtop lazydocker
+```
+
+## Session Manager
+```bash
+yay -S greetd greetd-regreet uwsm gnome-keyring
+sudo systemctl enable greetd
+```
+
+Modify `/etc/greetd/config.toml` to include:
+```
+[default_session]
+command = "Hyprland --config /etc/greetd/hyprland.conf"
+```
+
+Create `/etc/greetd/hyprland.conf` file with:
+```
+env = GTK_THEME,Nordic
+
+exec-once = regreet; hyprctl dispatch exit
+misc {
+    disable_hyprland_logo = true
+    disable_splash_rendering = true
+    disable_hyprland_qtutils_check = true
+}
+```
+
+Modify `/etc/pam.d/greetd` to include:
+```
+auth       optional     pam_gnome_keyring.so
+session    optional     pam_gnome_keyring.so auto_start
+```
+
+
+## Applications
+```bash
+# Apps
+yay -S brave-bin spotify pcloud-drive nordvpn-bin
 
 # Gaming
 yay -S steam goverlay
-# yay -S libappindicator-gtk3 icu69
-```
 
-## Hyprland
-
-```bash
-yay -S hyprland hyprpaper hypridle hyprlock
-
-# Run desktop entries (autostart)
-yay -S dex
-
-# Screenshot
-yay -S grim slurp
-
-# Bar, menus, notifications, screenshare context, appearance
-yay -S rofi-wayland waybar otf-font-awesome mako xdg-desktop-portal-hyprland nwg-look htop nvtop
-
-# Audio and Music shortcuts
-yay -S pamixer
-
-# Wayland helpers
-yay -S wdisplays ydotool
-
-# Bluetooth (utils and GUI)
-yay -S blueberry
-sudo systemctl enable --now bluetooth.service
-```
-
-
-## Link configs
-```bash
-# Clone repo into folder
-mkdir ~/ws
-git clone https://github.com/ggraca/configs.git ~/ws/configs
-
-# Link configs
-cd ~/ws/configs/2024-eos-hyprland
-./install
+# Dev
+yay -S sublime-text-4 cursor-bin docker mise usage
 ```
 
 ## Tweaks
@@ -102,4 +112,4 @@ docker start redis
 - [ ] Brave CPU usage on google maps
 - [ ] powerprofilesctl info/triggers
 - [ ] Alternative to swaync
-- [ ]
+= [ ] config folders using xdg-user-dirs (or disable it)
