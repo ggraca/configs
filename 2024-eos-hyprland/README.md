@@ -23,22 +23,6 @@ cd ~/ws/configs/2024-eos-hyprland
 ./install
 ```
 
-## Remaining OS setup
-```bash
-# System
-yay -S zsh kitty hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland waybar mako dex
-
-# Themes
-yay -S nwg-look nordic-theme oh-my-zsh-git otf-font-awesome # icons?
-
-# Screenshot, Audio and Music shortcuts, Bluetooth Utils and GUI
-yay -S grim slurp pamixer blueberry
-sudo systemctl enable --now bluetooth.service
-
-# System monitors/helpers
-yay -S ydotool htop nvtop lazydocker
-```
-
 ## Session Manager
 ```bash
 yay -S greetd greetd-regreet uwsm gnome-keyring
@@ -69,11 +53,28 @@ auth       optional     pam_gnome_keyring.so
 session    optional     pam_gnome_keyring.so auto_start
 ```
 
+## Remaining OS setup
+```bash
+# System
+yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland waybar mako dex
+
+# Themes
+yay -S nwg-look nordic-theme oh-my-zsh-git otf-font-awesome # icons?
+
+# Screenshot, Audio and Music shortcuts, Bluetooth Utils and GUI
+yay -S grim slurp pamixer blueberry
+sudo systemctl enable --now bluetooth.service
+
+# System monitors/helpers
+yay -S ydotool htop nvtop lazydocker
+```
 
 ## Applications
 ```bash
 # Apps
 yay -S brave-bin spotify pcloud-drive nordvpn-bin
+sudo systemctl enable --now nordvpnd
+sudo gpasswd -a ggraca nordvpn
 
 # Gaming
 yay -S steam goverlay
@@ -112,4 +113,7 @@ docker start redis
 - [ ] Brave CPU usage on google maps
 - [ ] powerprofilesctl info/triggers
 - [ ] Alternative to swaync
-= [ ] config folders using xdg-user-dirs (or disable it)
+- [ ] config folders using xdg-user-dirs (or disable it)
+- [ ] track kitty config
+- [ ] libappindicator-gtk3 needed for pcloud?
+- [ ] auto purge files from home

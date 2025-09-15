@@ -14,6 +14,7 @@
     ~/.zshrc: home/.zshrc
     ~/.gitconfig: home/.gitconfig
     ~/.local/share/applications/custom: applications
+    ~/.vscode/argv.json: vscode/argv.json
 
 - shell:
   - [chsh -s $(which zsh), Making zsh the default shell]
