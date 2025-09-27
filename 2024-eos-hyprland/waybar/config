@@ -2,24 +2,22 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
+        "hyprland/workspaces#main",
+        "hyprland/workspaces#special",
         "memory",
         "cpu",
         "custom/igpu",
         "custom/dgpu",
     ],
-
     "modules-center": [
-        "hyprland/workspaces#main",
-        "hyprland/workspaces#special",
+        "clock",
     ],
-
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
         "tray",
-        "clock",
+        "battery",
     ],
-
     "hyprland/workspaces#special": {
         "active-only": true,
         "all-outputs": false,
@@ -31,11 +29,19 @@
             "empty": "",
         },
         "persistent-workspaces": {
-            "*": ["terminals", "background"]
+            "*": [
+                "terminals",
+                "background"
+            ]
         },
-        "ignore-workspaces": ["1", "2", "3", "4", "5"],
+        "ignore-workspaces": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
     },
-
     "hyprland/workspaces#main": {
         "active-only": true,
         "all-outputs": false,
@@ -46,10 +52,13 @@
             "empty": "",
         },
         "persistent-workspaces": {
-            "*": [1, 2, 3]
+            "*": [
+                1,
+                2,
+                3
+            ]
         },
     },
-
     "cpu": {
         "interval": 5,
         "format": "CPU: {usage}%", // Icon: microchip
@@ -59,21 +68,18 @@
         },
         "on-click": "kitty -- 'htop'",
     },
-
-   "custom/igpu": {
+    "custom/igpu": {
         "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
         "format": "iGPU: {}%",
         "interval": 1,
         "on-click": "kitty -- 'nvtop'",
     },
-
     "custom/dgpu": {
         "exec": "cat /sys/class/drm/card1/device/gpu_busy_percent",
         "format": "dGPU: {}%",
         "interval": 1,
         "on-click": "kitty -- 'nvtop'",
     },
-
     "memory": {
         "interval": 5,
         "format": "MEM: {}%", // Icon: memory
@@ -83,51 +89,63 @@
             "critical": 90
         }
     },
-
     "clock": {
         "interval": 10,
         "format": "{:%a, %b %d - %H:%M}",
         "tooltip-format": "{:%e %B %Y}",
         "on-click": "swaync-client -t -sw",
     },
-
     "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons":{
+        "format": "{icon} ",
+        "format-icons": {
             "activated": "",
             "deactivated": ""
         }
     },
-
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": "{volume}% {icon}",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "וֹ",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "default": [""]
+            "headphone": "󰖀",
+            "hands-free": "󰖀",
+            "headset": "󰖀",
+            "phone": "󰖀",
+            "portable": "󰖀",
+            "default": [
+                "󰖀"
+            ]
         },
         "on-click": "pavucontrol",
         "on-scroll-up": "pamixer -ui 2",
         "on-scroll-down": "pamixer -ud 2",
     },
-
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}  ",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "max-length": 25
+    },
     "tray": {
         "icon-size": 20,
         "spacing": 16,
-     },
-
+    },
     "custom/launcher": {
-        "format":"",
+        "format": "",
         "on-click": "exec wofi -c ~/.config/wofi/config -I",
         "tooltip": false,
     },
-
     "custom/power": {
-        "format":"⏻",
+        "format": "⏻",
         "on-click": "exec ~/.config/wofi/power.sh",
     },
 }

@@ -25,7 +25,7 @@ cd ~/ws/configs/2024-eos-hyprland
 
 ## Session Manager
 ```bash
-yay -S greetd greetd-regreet uwsm gnome-keyring
+yay -S greetd greetd-regreet uwsm gnome-keyring seahorse
 sudo systemctl enable greetd
 ```
 
@@ -56,10 +56,13 @@ session    optional     pam_gnome_keyring.so auto_start
 ## Remaining OS setup
 ```bash
 # System
-yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland waybar mako dex
+yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland waybar mako dex network-manager-applet
 
 # Themes
-yay -S nwg-look nordic-theme oh-my-zsh-git otf-font-awesome # icons?
+yay -S nwg-look nordic-theme oh-my-zsh-git papirus-icon-theme ttf-nerd-fonts-symbols
+
+# File manager
+yay -S thunar gvfs tumbler thunar-archive-plugin thunar-volman mpv
 
 # Screenshot, Audio and Music shortcuts, Bluetooth Utils and GUI
 yay -S grim slurp pamixer blueberry
@@ -72,12 +75,12 @@ yay -S ydotool htop nvtop lazydocker
 ## Applications
 ```bash
 # Apps
-yay -S brave-bin spotify pcloud-drive nordvpn-bin
+yay -S brave-bin spotify pcloud-drive nordvpn-bin obsidian
 sudo systemctl enable --now nordvpnd
 sudo gpasswd -a ggraca nordvpn
 
 # Gaming
-yay -S steam goverlay
+yay -S steam discord goverlay xone xone-dongle-firmware
 
 # Dev
 yay -S sublime-text-4 cursor-bin docker mise usage
@@ -100,6 +103,7 @@ mise use node@20.11.1
 
 
 yay -S docker postgresql # postgresql-libs required to interact with postgres containers
+sudo systemctl enable --now docker.service
 
 docker run -d --name pg17 -v pg17data:/var/lib/postgresql/data -v /var/run/postgresql:/var/run/postgresql -e POSTGRES_HOST_AUTH_METHOD=trust -p5432:5432 postgres:17
 docker start pg17
@@ -117,3 +121,5 @@ docker start redis
 - [ ] track kitty config
 - [ ] libappindicator-gtk3 needed for pcloud?
 - [ ] auto purge files from home
+- [ ] ask for ssh password once per session
+- [ ] battery indicator
