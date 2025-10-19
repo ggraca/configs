@@ -1,0 +1,19 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.scripts: scripts
+    ~/.config/hypr: hypr
+    ~/.config/hyprpanel: hyprpanel
+    ~/.config/rofi: rofi # https://github.com/adi1090x/rofi
+    ~/.zshrc: home/.zshrc
+    ~/.gitconfig: home/.gitconfig
+    ~/.local/share/applications/custom: applications
+    ~/.vscode/argv.json: vscode/argv.json
+
+- shell:
+  - [chsh -s $(which zsh), Making zsh the default shell]

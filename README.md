@@ -1,1 +1,1 @@
-2024-eos-hyprland/README.md
+2025-eos-hyprland/README.md

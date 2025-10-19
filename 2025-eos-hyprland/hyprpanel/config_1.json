@@ -1,0 +1,8 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "scalingPriority": "hyprland",
+  "menus.transition": "crossfade",
+  "theme.bar.menus.enableShadow": false
+}

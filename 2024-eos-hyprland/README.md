@@ -26,6 +26,7 @@ cd ~/ws/configs/2024-eos-hyprland
 ## Session Manager
 ```bash
 yay -S greetd greetd-regreet uwsm gnome-keyring seahorse
+systemctl --user status gcr-ssh-agent.socket
 sudo systemctl enable greetd
 ```
 
@@ -111,15 +112,3 @@ docker start pg17
 docker run -d --name redis -v redisdata:/data -p6379:6379 redis:latest
 docker start redis
 ```
-
-### TODO
-
-- [ ] Brave CPU usage on google maps
-- [ ] powerprofilesctl info/triggers
-- [ ] Alternative to swaync
-- [ ] config folders using xdg-user-dirs (or disable it)
-- [ ] track kitty config
-- [ ] libappindicator-gtk3 needed for pcloud?
-- [ ] auto purge files from home
-- [ ] ask for ssh password once per session
-- [ ] battery indicator
