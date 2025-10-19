@@ -57,7 +57,7 @@ session    optional     pam_gnome_keyring.so auto_start
 ## Remaining OS setup
 ```bash
 # System
-yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland ags-hyprpanel-git dex
+yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland ags-hyprpanel-git dex libappindicator-gtk3
 
 # Themes
 yay -S nwg-look nordic-theme oh-my-zsh-git papirus-icon-theme ttf-nerd-fonts-symbols
@@ -117,4 +117,3 @@ docker start redis
 
 - [ ] Brave CPU usage on google maps
 - [ ] config folders using xdg-user-dirs (or disable it)
-- [ ] track kitty config

@@ -6,10 +6,10 @@
 - clean: ['~']
 
 - link:
-    ~/.scripts: scripts
     ~/.config/hypr: hypr
     ~/.config/hyprpanel: hyprpanel
     ~/.config/rofi: rofi # https://github.com/adi1090x/rofi
+    ~/.config/kitty: kitty
     ~/.zshrc: home/.zshrc
     ~/.gitconfig: home/.gitconfig
     ~/.local/share/applications/custom: applications
