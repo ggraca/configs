@@ -15,7 +15,7 @@
 
 ## Minimal interface
 ```bash
-yay -S zsh kitty hyprland rofi
+yay -S zsh oh-my-zsh-git kitty hyprland rofi
 
 mkdir ~/ws
 git clone https://github.com/ggraca/configs ~/ws/configs # Change to ssh later
@@ -60,7 +60,7 @@ session    optional     pam_gnome_keyring.so auto_start
 yay -S hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland ags-hyprpanel-git dex libappindicator-gtk3
 
 # Themes
-yay -S nwg-look nordic-theme oh-my-zsh-git papirus-icon-theme ttf-nerd-fonts-symbols
+yay -S nwg-look nordic-theme papirus-icon-theme ttf-nerd-fonts-symbols
 
 # File manager
 yay -S thunar gvfs tumbler thunar-archive-plugin thunar-volman mpv
@@ -84,14 +84,10 @@ sudo gpasswd -a ggraca nordvpn
 yay -S steam discord goverlay xone xone-dongle-firmware
 
 # Dev
-yay -S sublime-text-4 cursor-bin docker mise usage
+yay -S zed sublime-text-4 docker mise usage
 ```
 
 ## Tweaks
-
-### VSCode
-- Vscode won't detect the gnome keyring:
-	- https://github.com/microsoft/vscode/issues/187338#issuecomment-1630300049
 
 ## Dev environments
 ```bash
